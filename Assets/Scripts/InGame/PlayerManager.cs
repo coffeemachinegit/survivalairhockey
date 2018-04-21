@@ -12,4 +12,9 @@ public class PlayerManager : Singleton<PlayerManager> {
 		base.Awake();
 		playerStats = player.GetComponent<PlayerStats>();
 	}
+
+	public void TakeDamage(float value){
+		playerStats.Hp -= value;
+		UIManager.Instance.UpdateSliderValue("life",value);
+	}
 }
