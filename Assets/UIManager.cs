@@ -36,7 +36,7 @@ public class UIManager : Singleton<UIManager> {
 		}else if(flag == "thirst"){
 			thristSlider.value = value;
 		}else{
-			hpSlider.value -= (int)value;
+			hpSlider.value -= value;
 		}
 	}
 

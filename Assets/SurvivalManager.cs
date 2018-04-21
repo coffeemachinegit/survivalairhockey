@@ -72,8 +72,11 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	 * check if the game ended
 	 */
 	public void CheckStatus(){
-		if(PlayerManager.Instance.playerStats.Hungry <= 0 || PlayerManager.Instance.playerStats.Thirst <= 0){
-			Debug.Log("EndGame");
+		if(PlayerManager.Instance.playerStats.Hungry <= 0){
+			PlayerManager.Instance.TakeDamage(1*Time.deltaTime);
+		}
+		if(PlayerManager.Instance.playerStats.Thirst <= 0){
+			PlayerManager.Instance.TakeDamage(1*Time.deltaTime);
 		}
 	}
 

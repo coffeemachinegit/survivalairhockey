@@ -6,11 +6,11 @@ public class PlayerStats : MonoBehaviour {
 
 	
 	//All the stats that ll be used for the player
-	[SerializeField]private int hp;
+	[SerializeField]private float hp;
 	[SerializeField]private float hungry;
 	[SerializeField]private float thirst;
 
-	public int Hp{
+	public float Hp{
 		get{
 			return hp;
 		}
