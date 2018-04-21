@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
 	
+	//All the stats that ll be used for the player
 	[SerializeField]private int hp;
-	[SerializeField]private int hungry;
-	[SerializeField]private int thirst;
+	[SerializeField]private float hungry;
+	[SerializeField]private float thirst;
 
 	public int Hp{
 		get{
@@ -17,7 +18,7 @@ public class PlayerStats : MonoBehaviour {
 			hp = value;
 		}
 	}
-	public int Hungry{
+	public float Hungry{
 		get{
 			return hungry;
 		}
@@ -25,7 +26,7 @@ public class PlayerStats : MonoBehaviour {
 			hungry = value;
 		}
 	}
-	public int Thirst{
+	public float Thirst{
 		get{
 			return thirst;
 		}
