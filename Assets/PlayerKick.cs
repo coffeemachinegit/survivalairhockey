@@ -10,20 +10,22 @@ public class PlayerKick : MonoBehaviour {
 	private Rigidbody2D ball;
 	[SerializeField]
 	private float _force;
+
+	PlayerRotation refer;
 	private void Start () {
-		PlayerRotation refer = GetComponentInChildren<PlayerRotation> ();
-		direction = refer.direction;
-		distance = refer.distance;
+		refer = GetComponentInChildren<PlayerRotation> ();
+
 	}
 	private void Update () {
-		if (distance <= 2) {
-			if (Input.GetKey ("Fire")) {
-				Shoot(ball,direction);
+		direction = refer.direction;
+		distance = refer.distance;
+		if (distance <= 0.5) {
+			if (Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.Joystick1Button0)) {
+				Shoot (ball, direction);
 			}
 		}
 	}
 	void Shoot (Rigidbody2D ball, Vector2 dirToShoot) {
-		if (ball.velocity.sqrMagnitude == 0)
-			ball.AddForce (dirToShoot * _force, ForceMode2D.Impulse);
+		ball.AddForce (dirToShoot * _force, ForceMode2D.Impulse);
 	}
 }
