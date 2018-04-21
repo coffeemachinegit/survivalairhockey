@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 1331504407}
   - component: {fileID: 1331504406}
   - component: {fileID: 1331504408}
+  - component: {fileID: 1331504409}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -211,6 +212,26 @@ MonoBehaviour:
   hp: 0
   hungry: 0
   thirst: 0
+--- !u!50 &1331504409
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1331504405}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1735303982
 GameObject:
   m_ObjectHideFlags: 0
