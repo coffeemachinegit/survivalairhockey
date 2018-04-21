@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerRotation : MonoBehaviour {
 	public Transform ballPostion;
 	public float lookRadious, _rotationSpeed = 5f;
-	Vector3 direction;
-	float angle, distance;
+	public Vector3 direction;
+	public float angle, distance;
 	Quaternion rotation;
 	// Use this for initialization
 	// Update is called once per frame

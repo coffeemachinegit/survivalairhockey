@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class PlayerKick : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	Vector3 direction;
+	float distance;
+	[SerializeField]
+	private Rigidbody2D ball;
+	[SerializeField]
+	private float _force;
+	private void Start () {
+		PlayerRotation refer = GetComponentInChildren<PlayerRotation> ();
+		direction = refer.direction;
+		distance = refer.distance;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private void Update () {
+		if (distance <= 2) {
+			if (Input.GetKey ("Fire")) {
+				Shoot(ball,direction);
+			}
+		}
+	}
+	void Shoot (Rigidbody2D ball, Vector2 dirToShoot) {
+		if (ball.velocity.sqrMagnitude == 0)
+			ball.AddForce (dirToShoot * _force, ForceMode2D.Impulse);
 	}
 }
