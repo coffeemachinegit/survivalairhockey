@@ -8,6 +8,7 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public PlayerStats playerStats;
 
 	protected override void Awake() {
+		IsPersistentBetweenScenes = false;
 		base.Awake();
 		playerStats = player.GetComponent<PlayerStats>();
 	}
