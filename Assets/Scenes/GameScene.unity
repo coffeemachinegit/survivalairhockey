@@ -2659,6 +2659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 474663100}
   _force: 2
+  maxDistance: 1
 --- !u!1 &1145871808
 GameObject:
   m_ObjectHideFlags: 0

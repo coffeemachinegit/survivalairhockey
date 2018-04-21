@@ -9,7 +9,7 @@ public class PlayerKick : MonoBehaviour {
 	[SerializeField]
 	private Rigidbody2D ball;
 	[SerializeField]
-	private float _force;
+	private float _force,maxDistance;
 
 	PlayerRotation refer;
 	private void Start () {
@@ -19,7 +19,7 @@ public class PlayerKick : MonoBehaviour {
 	private void Update () {
 		direction = refer.direction;
 		distance = refer.distance;
-		if (distance <= 0.5) {
+		if (distance <= maxDistance) {
 			if (Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.Joystick1Button0)) {
 				Shoot (ball, direction);
 			}
