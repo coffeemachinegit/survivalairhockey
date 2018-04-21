@@ -9,27 +9,28 @@ public class PlayerMotor : MonoBehaviour {
     private float movX, movY;
 
     private PlayerAnimation playerMove;
+    private PlayerRotation lookToBall;
     private Rigidbody2D playerBody;
     private void Awake () {
         oldVelocity = velocity;
         playerBody = GetComponent<Rigidbody2D> ();
-        playerMove = GetComponent<PlayerAnimation> ();
-
+        
+       
     }
     private void Start () {
         playerStats = PlayerManager.Instance.playerStats;
         totalStats = playerStats.Thirst + playerStats.Hungry;
+        playerMove = GetComponentInChildren<PlayerAnimation> ();
+         lookToBall = GetComponentInChildren<PlayerRotation>();
 
     }
     private void Update () {
-        Debug.Log (velocity);
 
         //Fatigue Influence -> Bigger => Good (speed % influenced by fatigue)
         fatigueSpeedPerCent = (float) ((playerStats.Thirst + playerStats.Hungry)) / totalStats;
 
         //60% of fatigue => 60% of Total Speed
         if (fatigueSpeedPerCent < 0.8f) {
-            Debug.Log ("Fadigue: " + fatigueSpeedPerCent.ToString ());
             velocity = oldVelocity * (fatigueSpeedPerCent);
         } else {
             if (!Input.GetKey (KeyCode.LeftShift) || !Input.GetKey (KeyCode.Joystick1Button1))
@@ -37,11 +38,11 @@ public class PlayerMotor : MonoBehaviour {
         }
         movX = Input.GetAxis ("Horizontal");
         movY = Input.GetAxis ("Vertical");
-        Debug.Log(movX);
         if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.Joystick1Button1)) {
             velocity *= 2f;
         }
         playerMove.MovimentAnimation (movX, movY, velocity);
         transform.Translate (movX * velocity * Time.deltaTime, movY * velocity * Time.deltaTime, 0);
+        lookToBall.UpdateRotation();
     }
 }
