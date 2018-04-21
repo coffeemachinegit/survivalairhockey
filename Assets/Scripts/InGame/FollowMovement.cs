@@ -16,6 +16,10 @@ public class FollowMovement : MonoBehaviour {
 		_canMove = true;
 	}
 
+	private void Start() {
+		_transformToFollow = PlayerManager.Instance.playerTransform;
+	}
+
 	void Update()
 	{
 		float dist = (transform.position - _transformToFollow.position).magnitude;

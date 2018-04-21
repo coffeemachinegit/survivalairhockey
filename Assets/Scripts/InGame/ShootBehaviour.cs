@@ -17,6 +17,10 @@ public class ShootBehaviour : MonoBehaviour {
 		_nextTimeToShoot = Time.timeSinceLevelLoad + _fireRate;
 		_time = 0f;
 	}
+
+	private void Start() {
+		_transformToShoot = PlayerManager.Instance.playerTransform;
+	}
 	
 	// Update is called once per frame
 	void Update ()
