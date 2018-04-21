@@ -31,7 +31,8 @@ public class Movement : MonoBehaviour {
 	IEnumerator Shoot(Rigidbody2D ball, Vector2 dirToShoot)
 	{
 		_isCoroutineRunning = true;
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(.3f);
+		Debug.Log("Opa");
 		ball.AddForce(dirToShoot * _force, ForceMode2D.Impulse);
 		_isCoroutineRunning = false;
 	}
