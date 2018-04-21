@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69994dfcb9ff91b4cbce2bc41320fba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1331504405}
+  playerStats: {fileID: 0}
 --- !u!4 &896202387
 Transform:
   m_ObjectHideFlags: 0
@@ -181,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d932552d8616441be656da7e005834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 2
 --- !u!4 &1331504407
 Transform:
   m_ObjectHideFlags: 0
