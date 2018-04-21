@@ -33,12 +33,18 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	 * Drain player status based on a flag
 	 */
 	void DrainStatus(string flag){
-		if(flag == "hungry"){
+		if(flag == "hungry" && PlayerManager.Instance.playerStats.Hungry <= 0){
 			PlayerManager.Instance.playerStats.Hungry -= hungryMultiplier * time;
-			UIManager.Instance.UpdateSliderValue("hungry",PlayerManager.Instance.playerStats.Hungry);
-		}else{
+			UIManager.Instance.UpdateSliderValue(flag,PlayerManager.Instance.playerStats.Hungry);
+		}else if(flag == "thrist" && PlayerManager.Instance.playerStats.Thirst <= 0){
 			PlayerManager.Instance.playerStats.Thirst -= thirstMultiplier * time;
-			UIManager.Instance.UpdateSliderValue("thirst",PlayerManager.Instance.playerStats.Thirst);
+			UIManager.Instance.UpdateSliderValue(flag,PlayerManager.Instance.playerStats.Thirst);
+		}
+		if(PlayerManager.Instance.playerStats.Hungry < 0){
+			PlayerManager.Instance.playerStats.Hungry = 0;
+		}
+		if(PlayerManager.Instance.playerStats.Thirst < 0){
+			PlayerManager.Instance.playerStats.Thirst = 0;
 		}
 	}
 
