@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	
 	public void Move(Vector2 destination, Rigidbody2D ball, Vector2 dirToShoot)
 	{
 		Vector2 direction = (destination - _rigidbody2D.position).normalized;
@@ -32,8 +31,8 @@ public class Movement : MonoBehaviour {
 	{
 		_isCoroutineRunning = true;
 		yield return new WaitForSeconds(.3f);
-		Debug.Log("Opa");
-		ball.AddForce(dirToShoot * _force, ForceMode2D.Impulse);
+		if(ball.velocity.sqrMagnitude == 0)
+			ball.AddForce(dirToShoot * _force, ForceMode2D.Impulse);
 		_isCoroutineRunning = false;
 	}
 }
