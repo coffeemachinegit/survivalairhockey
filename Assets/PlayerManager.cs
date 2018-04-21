@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CerfGames.Utils;
+public class PlayerManager : Singleton<PlayerManager> {
 
-public class PlayerManager : MonoBehaviour {
+	public GameObject player;
+	public PlayerStats playerStats;
 
-	GameObject player;
-	PlayerStats playerStats;
-
-	private void Awake() {
-		playerStats = player.getComponenet<PlayerStats>();
+	protected override void Awake() {
+		base.Awake();
+		playerStats = player.GetComponent<PlayerStats>();
 	}
 	// Use this for initialization
 	void Start () {
