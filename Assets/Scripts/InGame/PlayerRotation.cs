@@ -10,22 +10,24 @@ public class PlayerRotation : MonoBehaviour {
 	Quaternion rotation;
 	// Use this for initialization
 	// Update is called once per frame
-	 void Update () {
+	void Update () {
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
 			direction = (ballPostion.position - transform.position).normalized;
-			angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-			rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-			transform.rotation = GenerateRotation();
+			angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+			rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			transform.rotation = GenerateRotation ();
 		} else {
-			direction.Set(transform.rotation.x,transform.rotation.y,0);
-			rotation = Quaternion.LookRotation(direction);
-			transform.rotation = GenerateRotation();
+			if (transform.rotation.z > 0 || transform.rotation.z < 0) {
+				direction.Set (transform.rotation.x, transform.rotation.y, 0);
+				rotation = Quaternion.identity;
+				transform.rotation = GenerateRotation ();
+			}
 			return;
 		}
 	}
 
-	Quaternion GenerateRotation(){
-		return Quaternion.Slerp(transform.rotation,rotation, _rotationSpeed * Time.deltaTime);
+	Quaternion GenerateRotation () {
+		return Quaternion.Slerp (transform.rotation, rotation, _rotationSpeed * Time.deltaTime);
 	}
 }
