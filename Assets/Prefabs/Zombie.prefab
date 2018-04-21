@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4332393296213820}
   - component: {fileID: 212951640820446340}
+  - component: {fileID: 114885872326361916}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -35,9 +36,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4858989522132828}
-  - component: {fileID: 114240079828611116}
   - component: {fileID: 50912640831887994}
   - component: {fileID: 58006667214227950}
+  - component: {fileID: 114240079828611116}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -64,14 +65,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560798116579484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0027925079, w: 0.9999961}
   m_LocalPosition: {x: 1.43, y: 3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4332393296213820}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.32}
 --- !u!50 &50912640831887994
 Rigidbody2D:
   serializedVersion: 4
@@ -120,6 +121,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transformToFollow: {fileID: 0}
   _speed: 0.5
+--- !u!114 &114885872326361916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070829594178388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee21e87db3104245ae5786b29200177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPostion: {fileID: 0}
+  lookRadious: 5000
+  _rotationSpeed: 2
 --- !u!212 &212951640820446340
 SpriteRenderer:
   m_ObjectHideFlags: 1

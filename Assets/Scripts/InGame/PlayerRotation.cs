@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
 	public Transform ballPostion;
-	public float lookRadious;
+	public float lookRadious, _rotationSpeed = 5f;
 	Vector3 direction;
 	float angle, distance;
 	Quaternion rotation;
 	// Use this for initialization
 	// Update is called once per frame
-	public void UpdateRotation () {
+	 void Update () {
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
 			direction = (ballPostion.position - transform.position).normalized;
@@ -26,6 +26,6 @@ public class PlayerRotation : MonoBehaviour {
 	}
 
 	Quaternion GenerateRotation(){
-		return Quaternion.Slerp(transform.rotation,rotation,5f * Time.deltaTime);
+		return Quaternion.Slerp(transform.rotation,rotation, _rotationSpeed * Time.deltaTime);
 	}
 }

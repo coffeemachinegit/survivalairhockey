@@ -43,6 +43,6 @@ public class PlayerMotor : MonoBehaviour {
         }
         playerMove.MovimentAnimation (movX, movY, velocity);
         transform.Translate (movX * velocity * Time.deltaTime, movY * velocity * Time.deltaTime, 0);
-        lookToBall.UpdateRotation();
+        // lookToBall.UpdateRotation();
     }
 }
