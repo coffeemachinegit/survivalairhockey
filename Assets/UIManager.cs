@@ -8,7 +8,6 @@ using CerfGames.Utils;
 public class UIManager : Singleton<UIManager> {
 
 	//The canvas group from each UI Screen
-	public CanvasGroup startGameGroup;
 	public CanvasGroup gameGroup;
 	public CanvasGroup creditsGroup;
 	//--------------------------------------------
@@ -16,17 +15,21 @@ public class UIManager : Singleton<UIManager> {
 	public Slider hungrySlider,thristSlider,hpSlider; //All the on screen slider
 	public TextMeshProUGUI scoreBoardText; //The game Score
 	//--------------------------------------------
+
+	public bool canPlay = false; //The startgame variable
 	float time;
 
 	protected override void Awake() {
 		IsPersistentBetweenScenes = false;
 		base.Awake();
 	}
-
-	private void Update() {
-		
+	private void Start() {
+		gameGroup.alpha = 0;
+		creditsGroup.alpha = 0;
+		canPlay = false;
 	}
 
+	//Update the slider choosed by flag
 	public void UpdateSliderValue(string flag,float value){
 		if(flag == "hungry"){
 			hungrySlider.value = value;
@@ -37,7 +40,15 @@ public class UIManager : Singleton<UIManager> {
 		}
 	}
 
+	//Update the scoreboard
 	public void ChangeScore(int home, int visitor){
 		scoreBoardText.text = home+" x "+visitor;
+	}
+
+	//In credits menu, go back to start menu
+	public void BackCredits(){
+		creditsGroup.alpha = 0;
+		creditsGroup.blocksRaycasts = false;
+		StartUIManager.Instance.startGameGroup.alpha = 1;
 	}
 }

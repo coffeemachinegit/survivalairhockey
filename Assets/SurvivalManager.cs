@@ -9,7 +9,10 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	
 	float time; //Time to use in the drain function
 	
-
+	protected override void Awake(){
+		IsPersistentBetweenScenes = false;
+		base.Awake();
+	}
 	private void Start() {
 		PlayerManager.Instance.playerStats.Hungry = 100;
 		PlayerManager.Instance.playerStats.Thirst = 100;
@@ -18,10 +21,12 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	}
 
 	private void Update() {
-		time = Time.deltaTime;
-		DrainStatus("hungry");
-		DrainStatus("thrist");
-		CheckStatus();
+		if(UIManager.Instance.canPlay){
+			time = Time.deltaTime;
+			DrainStatus("hungry");
+			DrainStatus("thrist");
+			CheckStatus();
+		}
 	}
 
 	/*
