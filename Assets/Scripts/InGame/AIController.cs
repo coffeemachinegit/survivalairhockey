@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour {
 
-	[SerializeField]private Rigidbody2D _ballPosition;
-	[SerializeField]private float _speed = 10f; // 10m/s 
-	[SerializeField]private float _minDistance = .5f;
+	[SerializeField]private Rigidbody2D _ballRigidbody;
 	[SerializeField]private Transform _goalTransform;
 	private Rigidbody2D _rigidbody2D;
 	private Vector2 _goalPosition;
+	private Movement _movement;
 
 	// Use this for initialization
 	void Awake () {
 		_rigidbody2D = GetComponent<Rigidbody2D>();
-		// _goalPosition = new Vector2(_goalTransform.position.x, _goalTransform.position.y);
+		_goalPosition = new Vector2(_goalTransform.position.x, _goalTransform.position.y);
+		_movement = GetComponent<Movement>();
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
-		// Distance between the target and the enemy
-		float distance = (_ballPosition.position - _rigidbody2D.position).magnitude;
-
-		// Movement direction
-		Vector2 dir = (_ballPosition.position - _rigidbody2D.position).normalized;
-		Vector2 deltaPos = dir * _speed * Time.deltaTime;
-
-		// Vector2 temp = (_ballPosition.position - _goalPosition).normalized;
-
-
-		// If it is too close, stop!
-		if(distance <= _minDistance)
+	void FixedUpdate () 
+	{
+		if(_movement.isCoroutineRunning || _ballRigidbody.position.x > 0)
 			return;
 
-		// Move!
-		_rigidbody2D.position += deltaPos;
+		// Direction opposite to the goal
+		Vector2 temp = (_ballRigidbody.position - _goalPosition).normalized * 0.5f;
+
+		// Position to be
+		Vector2 finalPos = temp + _ballRigidbody.position;
+
+		Debug.DrawLine(_rigidbody2D.position, _goalPosition, Color.green);
+
+		_movement.Move(finalPos, _ballRigidbody, (_goalPosition - _ballRigidbody.position).normalized);
 	}
 
 }
