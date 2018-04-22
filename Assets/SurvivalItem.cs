@@ -21,7 +21,7 @@ public class SurvivalItem : MonoBehaviour {
 				PlayerManager.Instance.playerStats.Thirst += value;
 				source.PlayOneShot(drink);
 			}
+			gameObject.SetActive(false);
 		}
-		gameObject.SetActive(false);
 	}
 }
