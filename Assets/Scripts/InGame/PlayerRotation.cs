@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
-	[SerializeField]
-	private Transform ballPostion;
+	public Transform ballPostion;
 	public float lookRadious, _rotationSpeed = 5f;
 	public Vector3 direction;
 	public float angle, distance;
