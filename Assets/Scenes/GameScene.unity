@@ -2553,6 +2553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startGameGroup: {fileID: 456340490}
   pressText: {fileID: 564577357}
+  source: {fileID: 896202391}
+  startWhistle: {fileID: 8300000, guid: aeabc953b41fc514f9600fb44bc92458, type: 3}
 --- !u!82 &896202391
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2669,6 +2671,8 @@ MonoBehaviour:
   ballPosition: {fileID: 0}
   ballRB: {fileID: 0}
   playerName: 
+  source: {fileID: 896202391}
+  endGameWhistle: {fileID: 8300000, guid: 69b0ef34f375fc8459cec935cc29b4fe, type: 3}
 --- !u!114 &896202393
 MonoBehaviour:
   m_ObjectHideFlags: 0
