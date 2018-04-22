@@ -10,17 +10,21 @@ public class PlayerMotor : MonoBehaviour {
     private float oldVelocity, fatigueSpeedPerCent, totalStats;
     private float movX, movY;
     Vector3 limitador;
+    float startThirstMult;
+
 
     private PlayerAnimation playerMove;
 
     [SerializeField]
     private float minVelocity = 2f;
     private void Awake () {
+        
         limitador = new Vector3 ();
         oldVelocity = velocity;
 
     }
     private void Start () {
+    
         playerStats = PlayerManager.Instance.playerStats;
         totalStats = playerStats.Thirst + playerStats.Hungry;
         playerMove = GetComponentInChildren<PlayerAnimation> ();
@@ -34,12 +38,17 @@ public class PlayerMotor : MonoBehaviour {
         //80% of fatigue => 80% of Total Speed
         if (fatigueSpeedPerCent < 0.8f && velocity > minVelocity) {
             velocity = oldVelocity * (fatigueSpeedPerCent);
+            SurvivalManager.Instance.ChangeMultiplier(false);
         } else {
             if ((!Input.GetKey (KeyCode.LeftShift) || !Input.GetKey (KeyCode.Joystick1Button1)))
-                if (fatigueSpeedPerCent < 0.8f)
+                if (fatigueSpeedPerCent < 0.8f){
                     velocity = minVelocity;
-                else
+                    SurvivalManager.Instance.ChangeMultiplier(false);
+                }
+                else{
                     velocity = oldVelocity;
+                    SurvivalManager.Instance.ChangeMultiplier(false);
+                }
         }
         movX = Input.GetAxis ("Horizontal");
         movY = Input.GetAxis ("Vertical");
@@ -47,6 +56,7 @@ public class PlayerMotor : MonoBehaviour {
         if ((Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.Joystick1Button1)) &&
             velocity > minVelocity) {
             velocity *= 2f;
+            SurvivalManager.Instance.ChangeMultiplier(true);
         }
 
         playerMove.MovimentAnimation (movX, movY, velocity);

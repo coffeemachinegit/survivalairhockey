@@ -7,6 +7,7 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 
 	public float hungryMultiplier,thirstMultiplier; //The multipliers used to drain status
 
+	public float hungryStart,thirstStart,hungryNew,thirstNew;
 	public float survivalTime;
 	
 	float time; //Time to use in the drain function
@@ -19,7 +20,11 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 		PlayerManager.Instance.playerStats.Hungry = 100;
 		PlayerManager.Instance.playerStats.Thirst = 100;
 		hungryMultiplier = 2f;
+		hungryStart = hungryMultiplier;
 		thirstMultiplier = 2f;
+		thirstStart = thirstMultiplier;
+		hungryNew = 3f;
+		thirstNew = 4f;
 	}
 
 	private void Update() {
@@ -81,6 +86,17 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 		if(PlayerManager.Instance.playerStats.Thirst <= 0){
 			PlayerManager.Instance.TakeDamage(1*Time.deltaTime);
 		}
+	}
+
+	public void ChangeMultiplier(bool flag){
+		//Coloca o modificador maior
+		if(flag){
+			thirstMultiplier = thirstNew;
+		}//Volta aos valores normais
+		else{
+			thirstMultiplier = thirstStart;
+		}
+		
 	}
 
 
