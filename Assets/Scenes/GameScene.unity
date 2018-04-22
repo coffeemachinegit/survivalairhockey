@@ -1536,11 +1536,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: _transformToFollow
+      value: 
+      objectReference: {fileID: 1117286648}
     - target: {fileID: 114885872326361916, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
       propertyPath: ballPostion
       value: 
       objectReference: {fileID: 1117286648}
+    - target: {fileID: 114685917680825996, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: _playerSpriteRenderer
+      value: 
+      objectReference: {fileID: 1358585072}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
   m_IsPrefabParent: 0
@@ -2936,6 +2946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
+  velocity: 6
   minVelocity: 2
 --- !u!4 &1117286648
 Transform:
@@ -2962,7 +2973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59962ff88386a647b44cb21c334ecfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 474663100}
   _force: 2
   maxDistance: 1
 --- !u!58 &1117286650

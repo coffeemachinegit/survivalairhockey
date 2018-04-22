@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560798116579484}
   m_LocalRotation: {x: 0, y: 0, z: 0.0027925079, w: 0.9999961}
-  m_LocalPosition: {x: 1.43, y: 3.26, z: 0}
+  m_LocalPosition: {x: -3.3739004, y: -0.34010822, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4332393296213820}
@@ -138,7 +138,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!82 &82872290570140656
 AudioSource:
   m_ObjectHideFlags: 1
@@ -260,8 +260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43f0f1d293ab204a8239bfe8cffbb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clipAttack: {fileID: 8300000, guid: f73c9c89f9bdaaf439c6ef89a920124d, type: 3}
+  _clipWalk: {fileID: 8300000, guid: 646ebbea84f092148941ad64642d1aa4, type: 3}
+  _clipSpawn: {fileID: 8300000, guid: f4f45ff18687cc54da70e4b5c6bcbb89, type: 3}
   _damage: 2
   _audioSource: {fileID: 0}
+  _playerSpriteRenderer: {fileID: 0}
 --- !u!114 &114885872326361916
 MonoBehaviour:
   m_ObjectHideFlags: 1

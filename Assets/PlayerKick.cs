@@ -6,13 +6,13 @@ public class PlayerKick : MonoBehaviour {
 
 	Vector3 direction;
 	float distance;
-	[SerializeField]
 	private Rigidbody2D ball;
 	[SerializeField]
-	private float _force,maxDistance;
+	private float _force,maxDistance=1f;
 
 	PlayerRotation refer;
 	private void Start () {
+		ball = GameManager.Instance.ball.GetComponent<Rigidbody2D>();
 		refer = GetComponentInChildren<PlayerRotation> ();
 
 	}
