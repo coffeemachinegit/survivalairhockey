@@ -15,10 +15,10 @@ public class SurvivalItem : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "Player"){
 			if(type == ItemType.Food){
-				PlayerManager.Instance.playerStats.Hungry += value;
+				SurvivalManager.Instance.AddStatus("hungry",value);
 				source.PlayOneShot(eat);
 			}else{
-				PlayerManager.Instance.playerStats.Thirst += value;
+				SurvivalManager.Instance.AddStatus(string.Empty,value);
 				source.PlayOneShot(drink);
 			}
 			gameObject.SetActive(false);
