@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootBehaviour : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class ShootBehaviour : MonoBehaviour {
 	[SerializeField] private Transform[] _shootPositions;
 	[SerializeField] private AudioClip _shotClip;
 	[SerializeField] private Smoke _smokeLeft, _smokeRight;
+	[SerializeField] private Slider _healthBarSlider;
+	[SerializeField] private int _health = 2;
 	
 	private AudioSource _audioSource = null;
 
@@ -22,6 +25,15 @@ public class ShootBehaviour : MonoBehaviour {
 		_time = 0f;
 		_audioSource = GetComponent<AudioSource>();
 		_pool = GameObject.Find("BulletPool").GetComponent<ObjectPool>();
+		_healthBarSlider.maxValue = _health;
+		_healthBarSlider.value = _health;
+	}
+
+	void Enable()
+	{
+		_health = 2;
+		_healthBarSlider.maxValue = _health;
+		_healthBarSlider.value = _health;
 	}
 
 	private void Start() {
@@ -31,6 +43,8 @@ public class ShootBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if(transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin && !GetComponent<Collider2D>().enabled)
+			GetComponent<Collider2D>().enabled = true;
 		if(!GameManager.Instance.canPlay)
 			return;
 
@@ -60,4 +74,19 @@ public class ShootBehaviour : MonoBehaviour {
 		bullet.SetActive(true);
 		_audioSource.PlayOneShot(_shotClip);
 	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if(other.gameObject.CompareTag("Ball"))
+		{
+			_health--;
+			_healthBarSlider.value = _health;
+			if(_health == 0)
+			{
+				transform.parent.gameObject.SetActive(false);
+				GameManager.Instance.nZombie--;
+			}
+		}
+	}
+
 }
