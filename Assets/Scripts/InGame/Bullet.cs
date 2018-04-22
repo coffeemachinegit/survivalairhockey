@@ -16,12 +16,18 @@ public class Bullet : MonoBehaviour {
 	
 	void Update()
 	{
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		if(IsOutOfBounds())
 			gameObject.SetActive(false);
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		Move();
 	}
 
@@ -44,6 +50,9 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		if(other.CompareTag("Player"))
 		{
 			PlayerManager.Instance.TakeDamage(_bulletDamage);

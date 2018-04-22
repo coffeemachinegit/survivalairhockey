@@ -15,6 +15,11 @@ public class EnemyAnimatorController : MonoBehaviour {
 
 	void Update()
 	{
+		if(!GameManager.Instance.canPlay){
+			_anim.StopPlayback();
+			return;
+		}
+
 		_anim.SetBool("isWalking", _movement.canMove);
 	}
 }

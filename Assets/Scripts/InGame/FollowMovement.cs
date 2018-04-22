@@ -31,6 +31,9 @@ public class FollowMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		if(_canMove)
 			Move(_transformToFollow.position);
 	}
