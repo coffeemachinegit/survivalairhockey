@@ -1551,6 +1551,41 @@ Prefab:
       propertyPath: _playerSpriteRenderer
       value: 
       objectReference: {fileID: 1358585072}
+    - target: {fileID: 58006667214227950, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: _distToStop
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: _canMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
   m_IsPrefabParent: 0
@@ -3001,7 +3036,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 100000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
