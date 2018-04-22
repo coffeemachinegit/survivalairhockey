@@ -12,22 +12,18 @@ public class PlayerMotor : MonoBehaviour {
     Vector3 limitador;
 
     private PlayerAnimation playerMove;
-    private PlayerRotation lookToBall;
-    private Rigidbody2D playerBody;
 
     [SerializeField]
     private float minVelocity = 2f;
     private void Awake () {
         limitador = new Vector3 ();
         oldVelocity = velocity;
-        playerBody = GetComponent<Rigidbody2D> ();
 
     }
     private void Start () {
         playerStats = PlayerManager.Instance.playerStats;
         totalStats = playerStats.Thirst + playerStats.Hungry;
         playerMove = GetComponentInChildren<PlayerAnimation> ();
-        lookToBall = GetComponentInChildren<PlayerRotation> ();
 
     }
     private void Update () {
@@ -55,6 +51,10 @@ public class PlayerMotor : MonoBehaviour {
 
         playerMove.MovimentAnimation (movX, movY, velocity);
         transform.Translate (movX * velocity * Time.deltaTime, movY * velocity * Time.deltaTime, 0);
+        float posX = Mathf.Clamp(transform.position.x,CameraUtil.Xmin,CameraUtil.Xmax);
+        float posY = Mathf.Clamp(transform.position.y,CameraUtil.Ymin,CameraUtil.Ymax);
+        limitador.Set(posX,posY,0);
+        transform.position = limitador;
         // lookToBall.UpdateRotation();
     }
 }
