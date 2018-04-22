@@ -28,6 +28,7 @@ public class UIManager : Singleton<UIManager> {
 	public TextMeshProUGUI[] top5Text;
 
 	Highscores highscoreManager;	
+
 	//----------------
 	float time;
 

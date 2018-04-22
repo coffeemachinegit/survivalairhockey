@@ -10,6 +10,9 @@ public class StartUIManager : Singleton<StartUIManager> {
 	public CanvasGroup startGameGroup; //Start canvas group
 	public TextMeshProUGUI pressText; //The blinkable text
 
+	public AudioSource source;
+	public AudioClip startWhistle;
+
 	protected override void Awake() {
 		IsPersistentBetweenScenes = false;
 		base.Awake();
@@ -26,6 +29,7 @@ public class StartUIManager : Singleton<StartUIManager> {
 			startGameGroup.alpha = 0;
 			UIManager.Instance.gameGroup.alpha = 1;
 			GameManager.Instance.canPlay = true;
+			source.PlayOneShot(startWhistle);
 		}
 	}
 
