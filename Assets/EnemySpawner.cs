@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	ObjectPool enemypool;
 
-	public int maxEnemy, nEnemy,spawnOffset = 2;
+	public int maxEnemy, nEnemy, spawnOffset = 2;
 	[SerializeField]
 	private float timeToSpawn = 1f;
 
@@ -31,13 +31,18 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	Vector3 generateRandomCoord () {
-		if(!flag)
-		//Enemies
-			return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), Random.Range (CameraUtil.Ymin + spawnOffset, CameraUtil.Ymax - spawnOffset), 0);
-		else
-		//Items
+		if (!flag) { //Enemies
+			if (Random.Range (0f, 1f) <= 0.5f) {
+				//Nascer em cima
+				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymin - spawnOffset, 0);
+			}else{
+				//Nascer em baixo
+				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymax + spawnOffset, 0);
+			}
+		} else
+			//Items
 			return new Vector3 (Random.Range (CameraUtil.Xmin + spawnOffset, spawnOffset), Random.Range (CameraUtil.Ymin + spawnOffset, CameraUtil.Ymax - spawnOffset), 0);
-		
+
 	}
 	public void killEnemy (GameObject enemy) {
 		nEnemy--;
