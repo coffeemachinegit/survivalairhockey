@@ -48,6 +48,8 @@ public class ShootBehaviour : MonoBehaviour {
 		int index = Random.Range(0, _shootPositions.Length);
 		Vector2 position = _shootPositions[index].position;
 
+		StartCoroutine(_shootPositions[index].GetComponentInChildren<Smoke>().Smoking());
+
 		print("SHOOT!");
 		GameObject bullet = _pool.GetPooledObject();
 		bullet.transform.position = position;
