@@ -642,6 +642,48 @@ MonoBehaviour:
   spawnOffset: 2
   timeToSpawn: 1
   flag: 1
+--- !u!1001 &496535204
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.136
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989522132828, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &502413334
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1182d88f0256b9a43bd3b16b0da17921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPlay: 0
+  canPlay: 1
   score: 0
   enemy_score: 0
   kill_monster_score: 0
@@ -829,6 +871,8 @@ MonoBehaviour:
   ballPosition: {fileID: 0}
   ballRB: {fileID: 0}
   playerName: 
+  source: {fileID: 0}
+  endGameWhistle: {fileID: 0}
 --- !u!114 &627461458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,6 +1056,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863135150 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
+    type: 2}
+  m_PrefabInternal: {fileID: 496535204}
+  m_Script: {fileID: 11500000, guid: aa0683799ea9a0244bbd939db7cf1962, type: 3}
 --- !u!1 &1062802255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,10 +1119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 10
+  maxEnemy: 50
   nEnemy: 0
-  spawnOffset: 2
-  timeToSpawn: 2
+  spawnOffset: 1
+  timeToSpawn: 1
   flag: 0
 --- !u!1 &1152276054
 GameObject:
@@ -1477,6 +1527,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1862170351 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1070829594178388, guid: c9febdc6e33d2e0459a031c5237d4009,
+    type: 2}
+  m_PrefabInternal: {fileID: 496535204}
+--- !u!114 &1862170353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862170351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7eb9be45c2d124b9800bb05a51af64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movement: {fileID: 863135150}
 --- !u!1 &1894849660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,10 +2028,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 10
+  maxEnemy: 50
   nEnemy: 0
-  spawnOffset: 2
-  timeToSpawn: 2
+  spawnOffset: 1
+  timeToSpawn: 1
   flag: 0
 --- !u!114 &2069006922
 MonoBehaviour:
@@ -1979,6 +2046,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pooledObject: {fileID: 1560798116579484, guid: c9febdc6e33d2e0459a031c5237d4009,
     type: 2}
-  _initialPoolSize: 10
-  _maxPoolSize: 12
+  _initialPoolSize: 50
+  _maxPoolSize: 50
   _canGrow: 1
