@@ -2748,6 +2748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
+  minVelocity: 2
 --- !u!4 &1117286648
 Transform:
   m_ObjectHideFlags: 0
