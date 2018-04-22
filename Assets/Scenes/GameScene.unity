@@ -1225,10 +1225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 12
+  maxEnemy: 7
   nEnemy: 0
   spawnOffset: 1
-  timeToSpawn: 1
+  timeToSpawn: 3
   flag: 1
 --- !u!114 &436628050
 MonoBehaviour:
@@ -2078,10 +2078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 12
+  maxEnemy: 5
   nEnemy: 0
   spawnOffset: 1
-  timeToSpawn: 1
+  timeToSpawn: 5
   flag: 0
 --- !u!114 &752658739
 MonoBehaviour:
