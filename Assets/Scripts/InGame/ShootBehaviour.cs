@@ -9,6 +9,9 @@ public class ShootBehaviour : MonoBehaviour {
 	[SerializeField] private Transform _transformToShoot;
 	[SerializeField] private ObjectPool _pool;
 	[SerializeField] private Transform[] _shootPositions;
+	[SerializeField] private AudioClip _shotClip;
+	
+	private AudioSource _audioSource = null;
 
 	private float _time;
 	private float _nextTimeToShoot;
@@ -16,6 +19,8 @@ public class ShootBehaviour : MonoBehaviour {
 	{
 		_nextTimeToShoot = Time.timeSinceLevelLoad + _fireRate;
 		_time = 0f;
+		_audioSource = GetComponent<AudioSource>();
+		_pool = GameObject.Find("BulletPool").GetComponent<ObjectPool>();
 	}
 
 	private void Start() {
@@ -47,5 +52,6 @@ public class ShootBehaviour : MonoBehaviour {
 		bullet.transform.position = position;
 		bullet.transform.rotation = transform.rotation;
 		bullet.SetActive(true);
+		_audioSource.PlayOneShot(_shotClip);
 	}
 }

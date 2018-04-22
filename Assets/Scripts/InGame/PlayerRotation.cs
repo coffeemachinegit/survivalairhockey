@@ -12,7 +12,12 @@ public class PlayerRotation : MonoBehaviour {
 	// Use this for initialization
 	// Update is called once per frame
 
-
+	private void Start() {
+		if(gameObject.name == "PlayerImage")
+			ballPostion = GameManager.Instance.ball.transform;
+		else
+			ballPostion = PlayerManager.Instance.playerTransform;
+	}
 	void Update () {
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
