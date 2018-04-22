@@ -10,6 +10,8 @@ public class FollowMovement : MonoBehaviour {
 	[SerializeField] private float _distToStop;
 	[SerializeField] private bool _canMove;
 
+	public bool canMove { get { return _canMove; }}
+
 	// Use this for initialization
 	void Awake () {
 		_rigidbody2d = GetComponent<Rigidbody2D>();
