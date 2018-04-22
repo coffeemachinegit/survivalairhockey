@@ -7,6 +7,8 @@ public class GameManager : Singleton<GameManager> {
 
 	public bool canPlay = false;
 	public int score = 0;
+
+	public int nZombie,nShooter,nItem;
 	public int enemy_score = 0;
 	public int kill_monster_score = 0;
 	public float finalScore = 0f;
@@ -21,6 +23,9 @@ public class GameManager : Singleton<GameManager> {
 	public AudioClip endGameWhistle;
 
 	protected override void Awake() {
+		nZombie = 0;
+		nShooter = 0;
+		nItem = 0;
 		IsPersistentBetweenScenes = false;
 		ballPosition = ball.transform;
 		ballRB = ball.GetComponent<Rigidbody2D>();

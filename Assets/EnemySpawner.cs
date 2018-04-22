@@ -19,14 +19,26 @@ public class EnemySpawner : MonoBehaviour {
 		StartCoroutine ("spawn");
 	}
 	IEnumerator spawn () {
-		while (true) {
-			yield return new WaitForSeconds (timeToSpawn);
-			if (nEnemy <= maxEnemy) {
-				enemyToSpawn = enemypool.GetPooledObject ();
-				enemyToSpawn.transform.position = generateRandomCoord ();
-				enemyToSpawn.SetActive (true);
-				enemyToSpawn.GetComponent<Collider2D>().enabled = false;
-				nEnemy++;
+		if (GameManager.Instance.canPlay) {
+			while (true) {
+				yield return new WaitForSeconds (timeToSpawn);
+				if (flag) {
+					if (GameManager.Instance.nZombie <= maxEnemy) {
+						enemyToSpawn = enemypool.GetPooledObject ();
+						enemyToSpawn.transform.position = generateRandomCoord ();
+						enemyToSpawn.SetActive (true);
+						enemyToSpawn.GetComponent<Collider2D> ().enabled = false;
+						GameManager.Instance.nZombie++;
+					}
+				} else {
+					if (GameManager.Instance.nShooter <= maxEnemy) {
+						enemyToSpawn = enemypool.GetPooledObject ();
+						enemyToSpawn.transform.position = generateRandomCoord ();
+						enemyToSpawn.SetActive (true);
+						enemyToSpawn.GetComponent<Collider2D> ().enabled = false;
+						GameManager.Instance.nShooter ++;
+					}
+				}
 			}
 		}
 	}
@@ -36,7 +48,7 @@ public class EnemySpawner : MonoBehaviour {
 			if (Random.Range (0f, 1f) <= 0.5f) {
 				//Nascer em cima
 				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymin - spawnOffset, 0);
-			}else{
+			} else {
 				//Nascer em baixo
 				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymax + spawnOffset, 0);
 			}

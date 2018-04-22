@@ -88,6 +88,7 @@ public class ZombieBehaviour : MonoBehaviour {
 			if(health == 0)
 			{
 				gameObject.SetActive(false);
+				GameManager.Instance.nZombie--;
 			}
 		}
 	}
