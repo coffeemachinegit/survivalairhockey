@@ -260,8 +260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43f0f1d293ab204a8239bfe8cffbb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clipAttack: {fileID: 8300000, guid: f73c9c89f9bdaaf439c6ef89a920124d, type: 3}
+  _clipWalk: {fileID: 8300000, guid: 646ebbea84f092148941ad64642d1aa4, type: 3}
+  _clipSpawn: {fileID: 8300000, guid: f4f45ff18687cc54da70e4b5c6bcbb89, type: 3}
   _damage: 2
   _audioSource: {fileID: 0}
+  _playerSpriteRenderer: {fileID: 0}
 --- !u!114 &114885872326361916
 MonoBehaviour:
   m_ObjectHideFlags: 1
