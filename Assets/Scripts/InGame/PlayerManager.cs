@@ -19,5 +19,8 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public void TakeDamage(float value){
 		playerStats.Hp -= value;
 		UIManager.Instance.UpdateSliderValue("life",value);
+		if(playerStats.Hp <= 0){
+			GameManager.Instance.GameOver();
+		}
 	}
 }

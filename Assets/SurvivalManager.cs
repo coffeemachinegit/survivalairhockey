@@ -6,6 +6,8 @@ using CerfGames.Utils;
 public class SurvivalManager : Singleton<SurvivalManager> {
 
 	public float hungryMultiplier,thirstMultiplier; //The multipliers used to drain status
+
+	public float survivalTime;
 	
 	float time; //Time to use in the drain function
 	
@@ -21,6 +23,7 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	}
 
 	private void Update() {
+		survivalTime+= 1 * Time.deltaTime;
 		if(GameManager.Instance.canPlay){
 			time = Time.deltaTime;
 			DrainStatus("hungry");
