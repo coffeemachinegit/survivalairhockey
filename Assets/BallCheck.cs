@@ -20,6 +20,12 @@ public class BallCheck : MonoBehaviour {
 
 	private void OnTriggerExit2D(Collider2D other) {
 		if(other.tag == "Ball"){
+			newBallVelocity.x = Random.Range(-4f,5f);
+			newBallVelocity.y = Random.Range(-4f,5f);
+			if(newBallVelocity.x < 0)
+				newBallVelocity.z = Random.Range(-4f,0f);
+			else
+				newBallVelocity.z = Random.Range(0f,5f);
 			other.transform.position = GameManager.Instance.ballStartPosition.position;
 			GameManager.Instance.ballRB.velocity = newBallVelocity;
 			GameManager.Instance.ballRB.angularVelocity = 0;
