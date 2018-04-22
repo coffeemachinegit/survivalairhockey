@@ -21,4 +21,7 @@ public class PlayerAnimation : MonoBehaviour {
 			playerMove.SetBool("isWalking",false);
 		}
 	}
+	public void KickAnimation(bool kick){
+		playerMove.SetBool("isKicking",kick);
+	}
 }
