@@ -23,7 +23,6 @@ public class GoalKeeperAI : MonoBehaviour {
 
 	
 	void Start () {
-		animator = GetComponent<Animator>();
 		ballTransform = GameManager.Instance.ballPosition;
 		newPos = new Vector2(transform.position.x,0);
 	}
@@ -38,8 +37,8 @@ public class GoalKeeperAI : MonoBehaviour {
 			newPos.y = Mathf.Clamp(ballTransform.position.y,yDown,yTop);
 			animator.SetBool("isWalking",true);
 			transform.position = Vector2.MoveTowards(transform.position,newPos,speed * Time.deltaTime);
-		}
-		animator.SetBool("isWalking",false);
+		}else
+			animator.SetBool("isWalking",false);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {

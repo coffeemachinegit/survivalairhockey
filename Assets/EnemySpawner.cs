@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour {
 				enemyToSpawn = enemypool.GetPooledObject ();
 				enemyToSpawn.transform.position = generateRandomCoord ();
 				enemyToSpawn.SetActive (true);
+				enemyToSpawn.GetComponent<Collider2D>().enabled = false;
 				nEnemy++;
 			}
 		}
