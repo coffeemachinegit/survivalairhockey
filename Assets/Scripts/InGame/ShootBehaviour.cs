@@ -20,6 +20,7 @@ public class ShootBehaviour : MonoBehaviour {
 		_nextTimeToShoot = Time.timeSinceLevelLoad + _fireRate;
 		_time = 0f;
 		_audioSource = GetComponent<AudioSource>();
+		_pool = GameObject.Find("BulletPool").GetComponent<ObjectPool>();
 	}
 
 	private void Start() {
