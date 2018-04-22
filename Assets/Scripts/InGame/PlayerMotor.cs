@@ -11,6 +11,9 @@ public class PlayerMotor : MonoBehaviour {
     private PlayerAnimation playerMove;
     private PlayerRotation lookToBall;
     private Rigidbody2D playerBody;
+
+    [SerializeField]
+    private float minVelocity = 1.2f;
     private void Awake () {
         oldVelocity = velocity;
         playerBody = GetComponent<Rigidbody2D> ();
@@ -30,7 +33,7 @@ public class PlayerMotor : MonoBehaviour {
         fatigueSpeedPerCent = (float) ((playerStats.Thirst + playerStats.Hungry)) / totalStats;
 
         //60% of fatigue => 60% of Total Speed
-        if (fatigueSpeedPerCent < 0.8f) {
+        if (fatigueSpeedPerCent < 0.8f && velocity <= minVelocity) {
             velocity = oldVelocity * (fatigueSpeedPerCent);
         } else {
             if (!Input.GetKey (KeyCode.LeftShift) || !Input.GetKey (KeyCode.Joystick1Button1))
