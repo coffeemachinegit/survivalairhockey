@@ -21,6 +21,7 @@ public class ZombieBehaviour : MonoBehaviour {
 	{
 		_audioSource = GetComponentInChildren<AudioSource>();
 		_movement = GetComponent<FollowMovement>();
+		_playerSpriteRenderer = GameObject.Find("Player").GetComponentInChildren<SpriteRenderer>();
 	}
 
 	void Update()
