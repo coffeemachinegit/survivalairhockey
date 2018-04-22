@@ -59,7 +59,7 @@ public class ItemSpawner : MonoBehaviour {
 
 	}
 	public void UseItem (GameObject item) {
-		GameManager.Instance.nItem--;
+		
 		item.SetActive (false);
 	}
 }

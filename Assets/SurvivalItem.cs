@@ -21,6 +21,7 @@ public class SurvivalItem : MonoBehaviour {
 				SurvivalManager.Instance.AddStatus(string.Empty,value);
 				source.PlayOneShot(drink);
 			}
+			GameManager.Instance.nItem--;
 			gameObject.SetActive(false);
 		}
 	}
