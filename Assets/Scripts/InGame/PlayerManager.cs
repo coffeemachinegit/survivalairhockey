@@ -17,10 +17,12 @@ public class PlayerManager : Singleton<PlayerManager> {
 	}
 
 	public void TakeDamage(float value){
-		playerStats.Hp -= value;
-		UIManager.Instance.UpdateSliderValue("life",value);
-		if(playerStats.Hp <= 0){
-			GameManager.Instance.GameOver();
+		if(GameManager.Instance.canPlay){
+			playerStats.Hp -= value;
+			UIManager.Instance.UpdateSliderValue("life",value);
+			if(playerStats.Hp <= 0){
+				GameManager.Instance.GameOver();
+			}
 		}
 	}
 }

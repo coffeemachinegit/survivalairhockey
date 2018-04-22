@@ -712,8 +712,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 1694498815
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -2460,6 +2460,7 @@ GameObject:
   - component: {fileID: 896202390}
   - component: {fileID: 896202391}
   - component: {fileID: 896202392}
+  - component: {fileID: 896202393}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2514,6 +2515,17 @@ MonoBehaviour:
   thristSlider: {fileID: 412212052}
   hpSlider: {fileID: 1963925967}
   scoreBoardText: {fileID: 1110896913}
+  goalScoreText: {fileID: 1379269966}
+  survivalTimeText: {fileID: 2116930192}
+  monsterScoreText: {fileID: 1726849370}
+  finalScoreText: {fileID: 922660267}
+  bestScoreText: {fileID: 913379191}
+  top5Text:
+  - {fileID: 1372272858}
+  - {fileID: 785229081}
+  - {fileID: 978607521}
+  - {fileID: 1211282897}
+  - {fileID: 1840400745}
 --- !u!114 &896202389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,12 +2662,24 @@ MonoBehaviour:
   canPlay: 0
   score: 0
   enemy_score: 0
+  kill_monster_score: 0
   finalScore: 0
   ballStartPosition: {fileID: 1022021204}
   ball: {fileID: 474663097}
   ballPosition: {fileID: 0}
   ballRB: {fileID: 0}
   playerName: 
+--- !u!114 &896202393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896202385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518cb98e9441217419d89e214171164d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &913379189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,7 +5047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

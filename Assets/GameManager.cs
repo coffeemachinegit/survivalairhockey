@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager> {
 	public bool canPlay = false;
 	public int score = 0;
 	public int enemy_score = 0;
-
+	public int kill_monster_score = 0;
 	public float finalScore = 0f;
 
 	public Transform ballStartPosition; //The center of the map
@@ -33,13 +33,13 @@ public class GameManager : Singleton<GameManager> {
 		UIManager.Instance.ChangeScore(score,enemy_score);
 	}
 
-	public void Score(float value){
-		finalScore += value;
+	public void Score(int value){
+		kill_monster_score += value;
 	}
 	public void GameOver(){
 		UIManager.Instance.ShowInsertName();
 		canPlay = false;
-		finalScore +=(int) (((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f));
+		finalScore = (int) ((((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f))+kill_monster_score);
 	}
 
 	public void ReloadGame(){
