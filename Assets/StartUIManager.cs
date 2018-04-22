@@ -22,7 +22,7 @@ public class StartUIManager : Singleton<StartUIManager> {
 	// Update is called once per frame
 	void Update () {
 		//Start the game
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetKeyDown(KeyCode.Space) && startGameGroup.alpha == 1){
 			startGameGroup.alpha = 0;
 			UIManager.Instance.gameGroup.alpha = 1;
 			GameManager.Instance.canPlay = true;
