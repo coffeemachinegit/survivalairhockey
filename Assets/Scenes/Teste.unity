@@ -270,6 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415931683}
   - component: {fileID: 415931684}
+  - component: {fileID: 415931685}
   m_Layer: 0
   m_Name: ItemPool
   m_TagString: Untagged
@@ -306,6 +307,22 @@ MonoBehaviour:
   _initialPoolSize: 10
   _maxPoolSize: 12
   _canGrow: 1
+--- !u!114 &415931685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415931682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemy: 5
+  nEnemy: 0
+  spawnOffset: 2
+  timeToSpawn: 1
+  flag: 1
 --- !u!1 &598955253
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnemy: 10
   nEnemy: 0
+  spawnOffset: 2
   timeToSpawn: 2
+  flag: 0
 --- !u!1 &1152276054
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +822,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1613913679
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149311872078690, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114987249792050312, guid: 8972937331610a04ea9137ab0e269fb6,
+        type: 2}
+      propertyPath: _initialPoolSize
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8972937331610a04ea9137ab0e269fb6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1954228351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnemy: 10
   nEnemy: 0
+  spawnOffset: 2
   timeToSpawn: 2
+  flag: 0
 --- !u!114 &2069006922
 MonoBehaviour:
   m_ObjectHideFlags: 0
