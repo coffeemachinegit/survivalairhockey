@@ -10,6 +10,7 @@ public class ShootBehaviour : MonoBehaviour {
 	[SerializeField] private ObjectPool _pool;
 	[SerializeField] private Transform[] _shootPositions;
 	[SerializeField] private AudioClip _shotClip;
+	[SerializeField] private Smoke _smokeLeft, _smokeRight;
 	
 	private AudioSource _audioSource = null;
 

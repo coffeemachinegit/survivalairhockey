@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager> {
 	public GameObject ball;
 	public Transform ballPosition;
 	public Rigidbody2D ballRB;
+	public string playerName;
 
 	protected override void Awake() {
 		IsPersistentBetweenScenes = false;
@@ -35,12 +36,13 @@ public class GameManager : Singleton<GameManager> {
 	public void Score(float value){
 		finalScore += value;
 	}
-
 	public void GameOver(){
-		//Digite seu nome
+		UIManager.Instance.ShowInsertName();
+		canPlay = false;
 		finalScore +=(int) (((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f));
-		//salvar e Mostrar o leaderboard
-		Debug.Log("Final Score"+finalScore);
+	}
+
+	public void ReloadGame(){
 		SceneManager.LoadScene("GameScene");
 	}
 
