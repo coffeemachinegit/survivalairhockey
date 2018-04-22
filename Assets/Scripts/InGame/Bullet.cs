@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour {
 		if(_rigidbody2d.position.x >= CameraUtil.halfScreenWidthInWorldUnits + offset || _rigidbody2d.position.x <= -CameraUtil.halfScreenWidthInWorldUnits - offset)
 			return true;
 
-		if(_rigidbody2d.position.y >= CameraUtil.halfScreenHeightInWorldUnits + offset || _rigidbody2d.position.x <= -CameraUtil.halfScreenHeightInWorldUnits - offset)
+		if(_rigidbody2d.position.y >= CameraUtil.halfScreenHeightInWorldUnits + offset || _rigidbody2d.position.y <= -CameraUtil.halfScreenHeightInWorldUnits - offset)
 			return true;
 
 		return false;
@@ -46,6 +46,8 @@ public class Bullet : MonoBehaviour {
 	{
 		if(other.CompareTag("Player"))
 		{
+			PlayerManager.Instance.TakeDamage(_bulletDamage);
+
 			// Player takes damage
 			gameObject.SetActive(false);
 		}
