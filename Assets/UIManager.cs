@@ -15,8 +15,6 @@ public class UIManager : Singleton<UIManager> {
 	public Slider hungrySlider,thristSlider,hpSlider; //All the on screen slider
 	public TextMeshProUGUI scoreBoardText; //The game Score
 	//--------------------------------------------
-
-	public bool canPlay = false; //The startgame variable
 	float time;
 
 	protected override void Awake() {
@@ -26,7 +24,6 @@ public class UIManager : Singleton<UIManager> {
 	private void Start() {
 		gameGroup.alpha = 0;
 		creditsGroup.alpha = 0;
-		canPlay = false;
 	}
 
 	//Update the slider choosed by flag
