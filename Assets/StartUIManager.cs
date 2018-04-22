@@ -25,7 +25,7 @@ public class StartUIManager : Singleton<StartUIManager> {
 		if(Input.GetKeyDown(KeyCode.Space)){
 			startGameGroup.alpha = 0;
 			UIManager.Instance.gameGroup.alpha = 1;
-			UIManager.Instance.canPlay = true;
+			GameManager.Instance.canPlay = true;
 		}
 	}
 

@@ -21,7 +21,7 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	}
 
 	private void Update() {
-		if(UIManager.Instance.canPlay){
+		if(GameManager.Instance.canPlay){
 			time = Time.deltaTime;
 			DrainStatus("hungry");
 			DrainStatus("thirst");
