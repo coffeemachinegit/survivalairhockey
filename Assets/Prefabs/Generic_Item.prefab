@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114139585269464916}
   - component: {fileID: 61879019158742500}
   m_Layer: 0
-  m_Name: Water_Prefab
+  m_Name: Generic_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

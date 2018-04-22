@@ -686,7 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415931683}
   - component: {fileID: 415931684}
-  - component: {fileID: 415931685}
+  - component: {fileID: 415931686}
   m_Layer: 0
   m_Name: ItemPool
   m_TagString: Untagged
@@ -723,7 +723,7 @@ MonoBehaviour:
   _initialPoolSize: 10
   _maxPoolSize: 12
   _canGrow: 1
---- !u!114 &415931685
+--- !u!114 &415931686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -731,14 +731,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 415931682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
+  m_Script: {fileID: 11500000, guid: bc9d68240ad08c446a2c47775091eb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 5
-  nEnemy: 0
+  maxItem: 5
+  nItem: 0
   spawnOffset: 2
   timeToSpawn: 1
-  flag: 1
+  itemsSprite:
+  - {fileID: 21300000, guid: d4b5bf211cfcc8948bab3ad00379fee7, type: 3}
+  - {fileID: 21300000, guid: 9556b59b5bd7b7e409109adfa87aecbc, type: 3}
+  - {fileID: 21300000, guid: 7308cda2ca292d443968e45ec341f9bc, type: 3}
+  - {fileID: 21300000, guid: 84f142fa1a9b03a48b3b200a1b91f09b, type: 3}
 --- !u!1001 &496535204
 Prefab:
   m_ObjectHideFlags: 0
@@ -1057,6 +1061,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungryMultiplier: 0
   thirstMultiplier: 0
+  hungryStart: 0
+  thirstStart: 0
+  hungryNew: 0
+  thirstNew: 0
   survivalTime: 0
 --- !u!114 &627461459
 MonoBehaviour:
