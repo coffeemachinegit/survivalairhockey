@@ -29,6 +29,12 @@ public class StartUIManager : Singleton<StartUIManager> {
 		}
 	}
 
+	public void StartGameOff(){
+		startGameGroup.alpha = 0;
+		startGameGroup.blocksRaycasts = false;
+		startGameGroup.interactable = false;
+	}
+
 	//Start the credits
 	public void CreditsGroupButton(){
 		startGameGroup.alpha = 0;
