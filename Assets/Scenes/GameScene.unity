@@ -406,14 +406,6 @@ Prefab:
       propertyPath: ballPostion
       value: 
       objectReference: {fileID: 1117286648}
-    - target: {fileID: 1703607498734532, guid: 64cff270d9678bc498d31c7b532745cf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344359236695892, guid: 64cff270d9678bc498d31c7b532745cf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cff270d9678bc498d31c7b532745cf, type: 2}
   m_IsPrefabParent: 0
