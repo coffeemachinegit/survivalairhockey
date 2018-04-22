@@ -26,6 +26,11 @@ public class ZombieBehaviour : MonoBehaviour {
 
 	void Update()
 	{
+		if(!GameManager.Instance.canPlay){
+			_audioSource.Stop();
+			return;
+		}
+
 		if(!_movement.canMove)
 		{
 			_isPlayingWalk = false;

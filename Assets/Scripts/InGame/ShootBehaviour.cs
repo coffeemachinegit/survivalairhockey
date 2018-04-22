@@ -31,6 +31,9 @@ public class ShootBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		_time += Time.deltaTime;
 		if(_time >= _nextTimeToShoot)
 		{

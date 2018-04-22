@@ -20,7 +20,7 @@ public class AIController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		if(_movement.isCoroutineRunning || _ballRigidbody.position.x > 0)
+		if(_movement.isCoroutineRunning || _ballRigidbody.position.x > 0 || !GameManager.Instance.canPlay)
 			return;
 
 		// Direction opposite to the goal
