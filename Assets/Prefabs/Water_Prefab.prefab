@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4426338427637200}
   - component: {fileID: 212228564675628710}
   - component: {fileID: 114139585269464916}
+  - component: {fileID: 61879019158742500}
   m_Layer: 0
   m_Name: Water_Prefab
   m_TagString: Untagged
@@ -41,6 +42,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61879019158742500
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798646872354636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.26, y: 0.38}
+    newSize: {x: 0.26, y: 0.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.26, y: 0.38}
+  m_EdgeRadius: 0
 --- !u!114 &114139585269464916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 10
-  type: 0
+  type: 1
+  eat: {fileID: 8300000, guid: 30b472e6fd83ed6499ef92f482703bb1, type: 3}
+  drink: {fileID: 8300000, guid: a9644c9a611156745aa2655205530eca, type: 3}
+  source: {fileID: 0}
 --- !u!212 &212228564675628710
 SpriteRenderer:
   m_ObjectHideFlags: 1
