@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
-	public Transform ballPostion;
+	private Transform ballPostion;
 	public float lookRadious, _rotationSpeed = 5f;
 	public Vector3 direction;
 	public float angle, distance;
 	Quaternion rotation;
 	// Use this for initialization
 	// Update is called once per frame
+
+	private void Start() {
+		ballPostion = GameManager.Instance.ball.transform;
+	}
 	void Update () {
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
