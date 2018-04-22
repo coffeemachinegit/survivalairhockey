@@ -10,8 +10,11 @@ public class UIManager : Singleton<UIManager> {
 	//The canvas group from each UI Screen
 	public CanvasGroup gameGroup;
 	public CanvasGroup creditsGroup;
+	public CanvasGroup insertNameGroup;
+	public CanvasGroup highScoreGroup;
 	//--------------------------------------------
 	//Variables from UI Elements
+	public TMP_InputField nameInput;
 	public Slider hungrySlider,thristSlider,hpSlider; //All the on screen slider
 	public TextMeshProUGUI scoreBoardText; //The game Score
 	//--------------------------------------------
@@ -47,5 +50,25 @@ public class UIManager : Singleton<UIManager> {
 		creditsGroup.alpha = 0;
 		creditsGroup.blocksRaycasts = false;
 		StartUIManager.Instance.startGameGroup.alpha = 1;
+	}
+	public void ShowHighScore(){
+		highScoreGroup.alpha = 1;
+		highScoreGroup.blocksRaycasts = true;
+		highScoreGroup.interactable = true;
+	}
+
+	public void ShowInsertName(){
+		gameGroup.alpha = 0;
+		insertNameGroup.alpha = 1;
+		insertNameGroup.blocksRaycasts = true;
+		insertNameGroup.interactable = true;
+	}
+
+	public void InsertName(){
+		GameManager.Instance.playerName = UIManager.Instance.nameInput.text;
+		insertNameGroup.blocksRaycasts = false;
+		insertNameGroup.interactable = false;
+		insertNameGroup.alpha = 0;
+		ShowHighScore();
 	}
 }
