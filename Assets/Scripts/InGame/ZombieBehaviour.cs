@@ -14,7 +14,7 @@ public class ZombieBehaviour : MonoBehaviour {
 
 
 	private FollowMovement _movement;
-	private bool _isPlaying = false;
+	private bool _isPlayingAttack = false, _isPlayingWalk = false;
 
 
 	void Awake()
@@ -27,13 +27,17 @@ public class ZombieBehaviour : MonoBehaviour {
 	{
 		if(!_movement.canMove)
 		{
+			_isPlayingWalk = false;
 			PlayerManager.Instance.TakeDamage(_damage * Time.deltaTime);
-			float pingPong = Mathf.PingPong(Time.time, 1);
+			
+			// Change color
+			float pingPong = Mathf.PingPong(Time.time, .5f);
          	Color color = Color.Lerp(Color.white, Color.red, pingPong);
 			_playerSpriteRenderer.color = color;
-			if(!_isPlaying)
+			
+			if(!_isPlayingAttack)
 			{
-				_isPlaying = true;
+				_isPlayingAttack = true;
 				_audioSource.loop = true;
 				_audioSource.clip = _clipAttack;
 				_audioSource.Play();
@@ -41,7 +45,15 @@ public class ZombieBehaviour : MonoBehaviour {
 		}
 		else
 		{
-			_isPlaying = false;
+			_playerSpriteRenderer.color = Color.white;
+			_isPlayingAttack = false;
+			if(!_isPlayingWalk)
+			{
+				_isPlayingWalk = true;
+				_audioSource.loop = true;
+				_audioSource.clip = _clipWalk;
+				_audioSource.Play();
+			}
 		}
 	}
 
@@ -49,18 +61,18 @@ public class ZombieBehaviour : MonoBehaviour {
 	{
 		_audioSource.loop = false;
 		_audioSource.clip = _clipSpawn;
-		_audioSource.volume = .3f;
+		_audioSource.volume = .2f;
 		_audioSource.Play();
 	}
 
 
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if(other.CompareTag("Player"))
-		{
-			_audioSource.loop = true;
-			_audioSource.clip = _clipWalk;
-			_audioSource.Play();
-		}
-	}
+	// void OnTriggerExit2D(Collider2D other)
+	// {
+	// 	if(other.CompareTag("Player"))
+	// 	{
+	// 		_audioSource.loop = true;
+	// 		_audioSource.clip = _clipWalk;
+	// 		_audioSource.Play();
+	// 	}
+	// }
 }
