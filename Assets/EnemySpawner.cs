@@ -18,10 +18,11 @@ public class EnemySpawner : MonoBehaviour {
 		enemypool = GetComponent<ObjectPool> ();
 		StartCoroutine ("spawn");
 	}
+
 	IEnumerator spawn () {
-		if (GameManager.Instance.canPlay) {
-			while (true) {
-				yield return new WaitForSeconds (timeToSpawn);
+		while (true) {
+			yield return new WaitForSeconds (timeToSpawn);
+			if (GameManager.Instance.canPlay) {
 				if (flag) {
 					if (GameManager.Instance.nZombie <= maxEnemy) {
 						enemyToSpawn = enemypool.GetPooledObject ();
@@ -36,7 +37,7 @@ public class EnemySpawner : MonoBehaviour {
 						enemyToSpawn.transform.position = generateRandomCoord ();
 						enemyToSpawn.SetActive (true);
 						enemyToSpawn.GetComponent<Collider2D> ().enabled = false;
-						GameManager.Instance.nShooter ++;
+						GameManager.Instance.nShooter++;
 					}
 				}
 			}
@@ -44,17 +45,13 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	Vector3 generateRandomCoord () {
-		if (!flag) { //Enemies
-			if (Random.Range (0f, 1f) <= 0.5f) {
-				//Nascer em cima
-				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymin - spawnOffset, 0);
-			} else {
-				//Nascer em baixo
-				return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymax + spawnOffset, 0);
-			}
-		} else
-			//Items
-			return new Vector3 (Random.Range (CameraUtil.Xmin + spawnOffset, spawnOffset), Random.Range (CameraUtil.Ymin + spawnOffset, CameraUtil.Ymax - spawnOffset), 0);
+		if (Random.Range (0f, 1f) <= 0.5f) {
+			//Nascer em cima
+			return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymin - spawnOffset, 0);
+		} else {
+			//Nascer em baixo
+			return new Vector3 (Random.Range (spawnOffset, CameraUtil.Xmax - spawnOffset), CameraUtil.Ymax + spawnOffset, 0);
+		}
 
 	}
 	public void killEnemy (GameObject enemy) {
