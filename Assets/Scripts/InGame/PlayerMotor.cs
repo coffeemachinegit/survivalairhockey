@@ -7,6 +7,7 @@ public class PlayerMotor : MonoBehaviour {
     private float velocity = 6f;
     private float oldVelocity, fatigueSpeedPerCent, totalStats;
     private float movX, movY;
+    Vector3 limitador;
 
     private PlayerAnimation playerMove;
     private PlayerRotation lookToBall;
@@ -15,6 +16,7 @@ public class PlayerMotor : MonoBehaviour {
     [SerializeField]
     private float minVelocity = 1.2f;
     private void Awake () {
+        limitador = new Vector3();
         oldVelocity = velocity;
         playerBody = GetComponent<Rigidbody2D> ();
         
