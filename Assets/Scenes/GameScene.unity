@@ -2278,55 +2278,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
-        type: 2}
-      propertyPath: _transformToFollow
-      value: 
-      objectReference: {fileID: 1117286648}
-    - target: {fileID: 114885872326361916, guid: c9febdc6e33d2e0459a031c5237d4009,
-        type: 2}
-      propertyPath: ballPostion
-      value: 
-      objectReference: {fileID: 1117286648}
     - target: {fileID: 114685917680825996, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
       propertyPath: _playerSpriteRenderer
       value: 
       objectReference: {fileID: 1358585072}
-    - target: {fileID: 58006667214227950, guid: c9febdc6e33d2e0459a031c5237d4009,
+    - target: {fileID: 114885872326361916, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
-      propertyPath: m_Radius
-      value: 0.48
-      objectReference: {fileID: 0}
+      propertyPath: ballPostion
+      value: 
+      objectReference: {fileID: 1117286648}
     - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
-      propertyPath: _distToStop
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114240079828611116, guid: c9febdc6e33d2e0459a031c5237d4009,
+      propertyPath: _transformToFollow
+      value: 
+      objectReference: {fileID: 1117286648}
+    - target: {fileID: 224756021968004196, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
-      propertyPath: _canMove
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0024986
+      objectReference: {fileID: 0}
+    - target: {fileID: 224756021968004196, guid: c9febdc6e33d2e0459a031c5237d4009,
+        type: 2}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
+    - target: {fileID: 224756021968004196, guid: c9febdc6e33d2e0459a031c5237d4009,
         type: 2}
-      propertyPath: m_BodyType
+      propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50912640831887994, guid: c9febdc6e33d2e0459a031c5237d4009,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9febdc6e33d2e0459a031c5237d4009, type: 2}
@@ -2679,6 +2659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungryMultiplier: 0
   thirstMultiplier: 0
+  hungryStart: 0
+  thirstStart: 0
+  hungryNew: 0
+  thirstNew: 0
   survivalTime: 0
 --- !u!114 &896202390
 MonoBehaviour:
@@ -8335,7 +8319,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2031390868}
   m_HandleRect: {fileID: 0}
