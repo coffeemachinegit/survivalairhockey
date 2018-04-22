@@ -1228,7 +1228,7 @@ MonoBehaviour:
   nEnemy: 0
   spawnOffset: 1
   timeToSpawn: 1
-  flag: 0
+  flag: 1
 --- !u!114 &436628050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2763,6 +2763,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlay: 0
   score: 0
+  nZombie: 0
+  nShooter: 0
+  nItem: 0
   enemy_score: 0
   kill_monster_score: 0
   finalScore: 0
