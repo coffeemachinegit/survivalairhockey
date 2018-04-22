@@ -412,6 +412,7 @@ MonoBehaviour:
   canPlay: 0
   score: 0
   enemy_score: 0
+  finalScore: 0
   ballStartPosition: {fileID: 0}
   ball: {fileID: 2057808586}
   ballPosition: {fileID: 0}
@@ -429,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungryMultiplier: 0
   thirstMultiplier: 0
+  survivalTime: 0
 --- !u!114 &627461459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062802256}
   - component: {fileID: 1062802257}
+  - component: {fileID: 1062802258}
   m_Layer: 0
   m_Name: ShooterPool
   m_TagString: Untagged
@@ -504,6 +507,20 @@ MonoBehaviour:
   _initialPoolSize: 10
   _maxPoolSize: 12
   _canGrow: 1
+--- !u!114 &1062802258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062802255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemy: 10
+  nEnemy: 0
+  timeToSpawn: 2
 --- !u!1 &1152276054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnemy: 10
   nEnemy: 0
-  timeToSpawn: 1
+  timeToSpawn: 2
 --- !u!114 &2069006922
 MonoBehaviour:
   m_ObjectHideFlags: 0

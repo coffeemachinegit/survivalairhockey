@@ -6,9 +6,12 @@ public class EnemySpawner : MonoBehaviour {
 
 	ObjectPool enemypool;
 
-	public int maxEnemy,nEnemy;
+	public int maxEnemy, nEnemy,spawnOffset;
 	[SerializeField]
 	private float timeToSpawn = 1f;
+
+	[SerializeField]
+	bool flag = false;
 
 	GameObject enemyToSpawn;
 	private void Start () {
@@ -16,17 +19,24 @@ public class EnemySpawner : MonoBehaviour {
 		StartCoroutine ("spawn");
 	}
 	IEnumerator spawn () {
-		yield return new WaitForSeconds (timeToSpawn);
-		if (nEnemy <= maxEnemy) {
-			enemyToSpawn = enemypool.GetPooledObject ();
-			enemyToSpawn.transform.position = generateRandomCoord ();
-			enemyToSpawn.SetActive (true);
-			nEnemy++;
-		} 
+		while (true) {
+			yield return new WaitForSeconds (timeToSpawn);
+			if (nEnemy <= maxEnemy) {
+				enemyToSpawn = enemypool.GetPooledObject ();
+				enemyToSpawn.transform.position = generateRandomCoord ();
+				enemyToSpawn.SetActive (true);
+				nEnemy++;
+			}
+		}
 	}
 
 	Vector3 generateRandomCoord () {
-		return new Vector3 (Random.Range (CameraUtil.Xmin / 2, CameraUtil.Xmax - 2), Random.Range (CameraUtil.Ymin + 2, CameraUtil.Ymax - 2), 0);
+		if(!flag)
+		//Enemies
+			return new Vector3 (Random.Range (CameraUtil.Xmin / spawnOffset, CameraUtil.Xmax - spawnOffset), Random.Range (CameraUtil.Ymin + spawnOffset, CameraUtil.Ymax - spawnOffset), 0);
+		else
+		//Items
+			return new Vector3 (Random.Range (CameraUtil.Xmin + spawnOffset, CameraUtil.Xmax/ spawnOffset), Random.Range (CameraUtil.Ymin + spawnOffset, CameraUtil.Ymax - spawnOffset), 0);
 	}
 	public void killEnemy (GameObject enemy) {
 		nEnemy--;
