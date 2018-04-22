@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
-  _distanceToShoot: 20
+  _distanceToShoot: 5
   _transformToShoot: {fileID: 0}
   _pool: {fileID: 0}
   _shootPositions:
