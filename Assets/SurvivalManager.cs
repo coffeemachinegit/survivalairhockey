@@ -23,6 +23,9 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	}
 
 	private void Update() {
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		survivalTime+= 1 * Time.deltaTime;
 		if(GameManager.Instance.canPlay){
 			time = Time.deltaTime;
