@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4426338427637200}
   - component: {fileID: 212228564675628710}
-  - component: {fileID: 136091588837663658}
   - component: {fileID: 114139585269464916}
   m_Layer: 0
   m_Name: Water_Prefab
@@ -55,19 +54,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 10
   type: 0
---- !u!136 &136091588837663658
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1798646872354636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.13
-  m_Height: 0.38
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212228564675628710
 SpriteRenderer:
   m_ObjectHideFlags: 1
