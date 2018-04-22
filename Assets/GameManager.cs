@@ -43,7 +43,7 @@ public class GameManager : Singleton<GameManager> {
 		source.PlayOneShot(endGameWhistle);
 		UIManager.Instance.ShowInsertName();
 		canPlay = false;
-		finalScore = (int) ((((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f))+kill_monster_score);
+		finalScore = (int) ((((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f))+(float)kill_monster_score);
 	}
 
 	public void ReloadGame(){

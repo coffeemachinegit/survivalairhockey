@@ -27,6 +27,9 @@ public class GoalKeeperAI : MonoBehaviour {
 	
 	
 	void Update () {
+		if(!GameManager.Instance.canPlay)
+			return;
+			
 		deltaX = ballTransform.position.x - gameObject.transform.position.x;
 		if(deltaX < 5 && !ballCatch){
 			newPos.y = Mathf.Clamp(ballTransform.position.y,yDown,yTop);	
@@ -35,8 +38,11 @@ public class GoalKeeperAI : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		if(other.gameObject.tag == "Ball"){
-			if(Random.Range(0,2) != 3){
+			if(Random.Range(0,2) == 1){
 				ballCatch = true;
 				GameManager.Instance.ballRB.velocity = nullVelocity;
 				GameManager.Instance.ballPosition.localRotation = Quaternion.identity;
