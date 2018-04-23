@@ -411,6 +411,16 @@ Prefab:
       propertyPath: ballPostion
       value: 
       objectReference: {fileID: 1117286648}
+    - target: {fileID: 224489468184199122, guid: 64cff270d9678bc498d31c7b532745cf,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224489468184199122, guid: 64cff270d9678bc498d31c7b532745cf,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cff270d9678bc498d31c7b532745cf, type: 2}
   m_IsPrefabParent: 0
@@ -1230,10 +1240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 7
+  maxEnemy: 2
   nEnemy: 0
   spawnOffset: 1
-  timeToSpawn: 3
+  timeToSpawn: 7
   flag: 1
 --- !u!114 &436628050
 MonoBehaviour:
@@ -2193,10 +2203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7075cc8184d888f478b2bd7ad1bed676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemy: 5
+  maxEnemy: 2
   nEnemy: 0
   spawnOffset: 1
-  timeToSpawn: 5
+  timeToSpawn: 10
   flag: 0
 --- !u!114 &752658739
 MonoBehaviour:
@@ -4260,7 +4270,6 @@ GameObject:
   - component: {fileID: 1117286648}
   - component: {fileID: 1117286647}
   - component: {fileID: 1117286646}
-  - component: {fileID: 1117286649}
   - component: {fileID: 1117286651}
   - component: {fileID: 1117286650}
   - component: {fileID: 1117286652}
@@ -4313,21 +4322,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1117286649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1117286645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59962ff88386a647b44cb21c334ecfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 5
-  maxDistance: 1
-  source: {fileID: 1117286652}
-  kick: {fileID: 8300000, guid: 25636a6a950ed3644ade43eaf6ec997c, type: 3}
 --- !u!58 &1117286650
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5405,6 +5399,8 @@ GameObject:
   - component: {fileID: 1358585071}
   - component: {fileID: 1358585070}
   - component: {fileID: 1358585069}
+  - component: {fileID: 1358585074}
+  - component: {fileID: 1358585073}
   m_Layer: 0
   m_Name: PlayerImage
   m_TagString: Player
@@ -5520,6 +5516,46 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &1358585073
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358585067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.51412296, y: -0.0138943195}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.96}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38994884, y: 0.7098984}
+  m_EdgeRadius: 0
+--- !u!114 &1358585074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358585067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59962ff88386a647b44cb21c334ecfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 10
+  maxDistance: 1
+  source: {fileID: 1117286652}
+  kick: {fileID: 8300000, guid: 25636a6a950ed3644ade43eaf6ec997c, type: 3}
 --- !u!1 &1360956293
 GameObject:
   m_ObjectHideFlags: 0
