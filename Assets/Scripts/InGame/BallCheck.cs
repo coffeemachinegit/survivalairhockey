@@ -17,8 +17,10 @@ public class BallCheck : MonoBehaviour {
 	//Make a goal
 	private void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Ball") {
-			if (type == GoalType.Your)
+			if (type == GoalType.Your){
 				GameManager.Instance.EnemyGoal ();
+				ResetBall(other);
+			}
 			else if (type == GoalType.Enemy) {
 				GameManager.Instance.Goal ();
 				ResetBall(other);
