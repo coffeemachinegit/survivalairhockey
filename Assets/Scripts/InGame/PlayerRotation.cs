@@ -20,6 +20,9 @@ public class PlayerRotation : MonoBehaviour {
 			ballPostion = PlayerManager.Instance.playerTransform;
 	}
 	void Update () {
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
 			if(gameObject.name == "PlayerImage")

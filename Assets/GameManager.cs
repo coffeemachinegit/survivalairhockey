@@ -51,6 +51,8 @@ public class GameManager : Singleton<GameManager> {
 	public void GameOver(){
 		source.volume = 0.4f;
 		source.PlayOneShot(endGameWhistle);
+		ballRB.velocity = Vector2.zero;
+		ballPosition.rotation = Quaternion.identity;
 		UIManager.Instance.ShowInsertName();
 		canPlay = false;
 		finalScore = (int) ((((score - enemy_score)*0.7f) + (SurvivalManager.Instance.survivalTime * 0.3f))+(float)kill_monster_score);

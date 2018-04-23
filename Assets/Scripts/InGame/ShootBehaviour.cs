@@ -77,7 +77,7 @@ public class ShootBehaviour : MonoBehaviour {
 			_healthBarSlider.value = _health;
 			if (_health == 0) {
 				transform.parent.gameObject.SetActive (false);
-				GameManager.Instance.nZombie--;
+				GameManager.Instance.nShooter--;
 			}
 		}
 	}
