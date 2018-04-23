@@ -43,7 +43,7 @@ public class CraftItem : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "Player"){
 			CraftManager.Instance.Crafting(flag);
-			gameObject.SetActive(false);
+			gameObject.transform.parent.gameObject.SetActive(false);
 			GameManager.Instance.nCraftItem--;
 		}
 	}

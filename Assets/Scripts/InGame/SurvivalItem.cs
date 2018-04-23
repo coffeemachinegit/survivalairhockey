@@ -57,7 +57,7 @@ public class SurvivalItem : MonoBehaviour {
 				source.PlayOneShot(drink);
 			}
 			GameManager.Instance.nItem--;
-			gameObject.SetActive(false);
+			gameObject.transform.parent.gameObject.SetActive(false);
 		}
 	}
 }
