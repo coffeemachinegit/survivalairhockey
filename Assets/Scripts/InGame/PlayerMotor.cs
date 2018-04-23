@@ -9,8 +9,10 @@ public class PlayerMotor : MonoBehaviour {
     private float velocity = 6f;
     private float oldVelocity, fatigueSpeedPerCent, totalStats;
     private float movX, movY;
-    Vector3 limitador;
+    Vector2 limitador;
     float startThirstMult;
+
+    Rigidbody2D playerBody;
 
 
     private PlayerAnimation playerMove;
@@ -18,7 +20,7 @@ public class PlayerMotor : MonoBehaviour {
     [SerializeField]
     private float minVelocity = 2f;
     private void Awake () {
-        
+        playerBody = GetComponent<Rigidbody2D>();
         limitador = new Vector3 ();
         oldVelocity = velocity;
 
@@ -29,6 +31,12 @@ public class PlayerMotor : MonoBehaviour {
         totalStats = playerStats.Thirst + playerStats.Hungry;
         playerMove = GetComponentInChildren<PlayerAnimation> ();
 
+    }
+    void FixedUpdate() {
+         float posX = Mathf.Clamp(transform.position.x+ movX * velocity * Time.deltaTime,CameraUtil.Xmin,CameraUtil.Xmax);
+         float posY = Mathf.Clamp(transform.position.y+ movY * velocity * Time.deltaTime,CameraUtil.Ymin,CameraUtil.Ymax);
+        limitador.Set(posX,posY);
+        playerBody.position = limitador;
     }
     private void Update () {
 
@@ -65,11 +73,11 @@ public class PlayerMotor : MonoBehaviour {
         }
 
         playerMove.MovimentAnimation (movX, movY, velocity);
-        transform.Translate (movX * velocity * Time.deltaTime, movY * velocity * Time.deltaTime, 0);
-        float posX = Mathf.Clamp(transform.position.x,CameraUtil.Xmin,CameraUtil.Xmax);
-        float posY = Mathf.Clamp(transform.position.y,CameraUtil.Ymin,CameraUtil.Ymax);
-        limitador.Set(posX,posY,0);
-        transform.position = limitador;
+        // transform.Translate (movX * velocity * Time.deltaTime, movY * velocity * Time.deltaTime, 0);
+        // float posX = Mathf.Clamp(transform.position.x,CameraUtil.Xmin,CameraUtil.Xmax);
+        // float posY = Mathf.Clamp(transform.position.y,CameraUtil.Ymin,CameraUtil.Ymax);
+        // limitador.Set(posX,posY,0);
+        // transform.position = limitador;
         // lookToBall.UpdateRotation();
     }
 }
