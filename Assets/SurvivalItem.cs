@@ -13,7 +13,7 @@ public class SurvivalItem : MonoBehaviour {
 	public AudioSource source;
 
 	private void Start() {
-		source = GameManager.Instance.source;
+		source = GameManager.Instance.bgSource;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {

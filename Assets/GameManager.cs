@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager> {
 	public string playerName;
 
 	public AudioSource source;
+	public AudioSource bgSource;
 	public AudioClip endGameWhistle;
 	public AudioClip goalAudio;
 	public AudioClip enemyGoalAudio;
