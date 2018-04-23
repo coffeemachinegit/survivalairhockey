@@ -619,7 +619,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
-  _distanceToShoot: 5
   _transformToShoot: {fileID: 0}
   _pool: {fileID: 0}
   _shootPositions:
@@ -630,6 +629,7 @@ MonoBehaviour:
   _smokeRight: {fileID: 114917570212344328}
   _healthBarSlider: {fileID: 114652380094261598}
   _health: 2
+  _movement: {fileID: 114101831243549382}
 --- !u!114 &114608161785485296
 MonoBehaviour:
   m_ObjectHideFlags: 1

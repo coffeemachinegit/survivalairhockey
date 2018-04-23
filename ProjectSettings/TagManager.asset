@@ -8,6 +8,7 @@ TagManager:
   - Enemy_goal
   - Ball
   - Campo
+  - Trave
   layers:
   - Default
   - TransparentFX
