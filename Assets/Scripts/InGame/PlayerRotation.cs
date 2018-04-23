@@ -12,15 +12,20 @@ public class PlayerRotation : MonoBehaviour {
 	// Update is called once per frame
 
 	private void Start() {
-		if(gameObject.name == "PlayerImage")
+		if(gameObject.name == "PlayerImage"){
+			lookRadious = Mathf.Infinity;
 			ballPostion = GameManager.Instance.ball.transform;
+		}
 		else
 			ballPostion = PlayerManager.Instance.playerTransform;
 	}
 	void Update () {
 		distance = Vector3.Distance (transform.position, ballPostion.position);
 		if (distance <= lookRadious) {
-			direction = (ballPostion.position - transform.position).normalized;
+			if(gameObject.name == "PlayerImage")
+				direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+			else
+				direction = (ballPostion.position - transform.position).normalized;
 			angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 			rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 			transform.rotation = GenerateRotation ();

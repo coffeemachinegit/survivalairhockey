@@ -41,7 +41,7 @@ public class PlayerMotor : MonoBehaviour {
             SurvivalManager.Instance.ChangeMultiplier(false);
         } else {
             if ((!Input.GetKey (KeyCode.LeftShift) || !Input.GetKey (KeyCode.Joystick1Button1)))
-                if (fatigueSpeedPerCent < 0.8f){
+                if (fatigueSpeedPerCent < 0.35f){
                     velocity = minVelocity;
                     SurvivalManager.Instance.ChangeMultiplier(false);
                 }
