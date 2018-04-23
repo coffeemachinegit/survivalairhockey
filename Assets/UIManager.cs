@@ -75,7 +75,7 @@ public class UIManager : Singleton<UIManager> {
 			playerStatusText.text = "Fadigated";
 			playerStatusText.color = Color.red;
 		} else if (hungrySlider.value <= 0) {
-			playerStatusText.text = "Dying";
+			playerStatusText.text = "Starving";
 			playerStatusText.color = Color.red;
 		} else {
 			playerStatusText.text = "Healthy";
