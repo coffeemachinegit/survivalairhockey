@@ -45,10 +45,12 @@ public class PlayerMotor : MonoBehaviour {
         } else {
             if ((!Input.GetKey (KeyCode.LeftShift) || !Input.GetKey (KeyCode.Joystick1Button1)))
                 if (fatigueSpeedPerCent < 0.35f){
+                    GameManager.Instance.isFadigated = true;
                     velocity = minVelocity;
                     SurvivalManager.Instance.ChangeMultiplier(false);
                 }
                 else{
+                    GameManager.Instance.isFadigated = false;
                     velocity = oldVelocity;
                     SurvivalManager.Instance.ChangeMultiplier(false);
                 }
