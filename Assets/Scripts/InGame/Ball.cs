@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
 	private Rigidbody2D rigidbody2D;
-	private 
+	private float minSpeed = 1f;
 
 	// Use this for initialization
 	void Awake () {
@@ -19,11 +19,11 @@ public class Ball : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		// Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-		// if(otherRb != null)
-		// {
-		//		rigidbody2D.velocity = otherRb.velocity * 1.2f;
-		// }
+		Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
+		if(otherRb != null && rigidbody2D.velocity.magnitude <= minSpeed)
+		{
+			rigidbody2D.velocity = Vector2.one;
+		}
 		print("BALL");
 	}
 }
