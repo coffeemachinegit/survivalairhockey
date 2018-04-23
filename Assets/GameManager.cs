@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager> {
 	public int kill_monster_score = 0;
 	public float finalScore = 0f;
 
+	public bool isFadigated = false;
+
 	public Transform ballStartPosition; //The center of the map
 	public GameObject ball;
 	public Transform ballPosition;
