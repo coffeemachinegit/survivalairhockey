@@ -67,7 +67,8 @@ public class ShootBehaviour : MonoBehaviour {
 
 	void Shoot () {
 		int index = Random.Range (0, _shootPositions.Length);
-		Vector2 position = _shootPositions[index].position;
+		Vector3 position = _shootPositions[index].position;
+		position.z = -5f;
 
 		StartCoroutine (_shootPositions[index].GetComponentInChildren<Smoke> ().Smoking ());
 

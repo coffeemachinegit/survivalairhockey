@@ -2316,8 +2316,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 364820049
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 40c4f4fa50fb6cd44b7b012f6ffee0ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3166,6 +3166,8 @@ MonoBehaviour:
   - {fileID: 978607521}
   - {fileID: 1211282897}
   - {fileID: 1840400745}
+  woodQtd: {fileID: 0}
+  nailQtd: {fileID: 0}
 --- !u!114 &896202389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4716,6 +4718,7 @@ MonoBehaviour:
   hp: 100
   hungry: 100
   thirst: 100
+  damageReceivePercentual: 0
 --- !u!114 &1117286647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8886,11 +8889,6 @@ MonoBehaviour:
   nItem: 0
   spawnOffset: 2
   timeToSpawn: 1
-  itemsSprite:
-  - {fileID: 21300000, guid: d4b5bf211cfcc8948bab3ad00379fee7, type: 3}
-  - {fileID: 21300000, guid: 9556b59b5bd7b7e409109adfa87aecbc, type: 3}
-  - {fileID: 21300000, guid: 7308cda2ca292d443968e45ec341f9bc, type: 3}
-  - {fileID: 21300000, guid: 84f142fa1a9b03a48b3b200a1b91f09b, type: 3}
 --- !u!114 &1899750338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10089,7 +10087,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123308113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9259219, y: 0.9257728, z: 0.9310525}
   m_Children: []
   m_Father: {fileID: 0}
