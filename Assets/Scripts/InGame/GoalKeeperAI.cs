@@ -13,7 +13,6 @@ public class GoalKeeperAI : MonoBehaviour {
 	public float yTop,yDown;
 
 	private Vector2 newPos;
-	private Vector3 nullVelocity = new Vector3(0,0,0);
 	public float oldPosY;
 	public PlayerRotation rotation;
 	public Transform playerGoal;
@@ -55,11 +54,10 @@ public class GoalKeeperAI : MonoBehaviour {
 		if(other.gameObject.tag == "Ball"){
 			if(Random.Range(0,2) == 1){
 				ballCatch = true;
-				GameManager.Instance.ballRB.velocity = nullVelocity;
-				GameManager.Instance.ballPosition.localRotation = Quaternion.identity;
-				other.gameObject.transform.SetParent(gameObject.transform);
 				rotation.ballPostion = playerGoal;
+				other.gameObject.transform.SetParent(gameObject.transform);
 				other.gameObject.transform.position = ballPoss.position;
+				GameManager.Instance.ballRB.velocity = Vector2.zero;
 				StartCoroutine(KickBall(other.gameObject));
 			}
 		}
@@ -67,7 +65,7 @@ public class GoalKeeperAI : MonoBehaviour {
 	
 	IEnumerator KickBall(GameObject ball){
 		yield return new WaitForSeconds(1);
-		Vector2 newVelocity = new Vector2(Random.Range(-5,-11),Random.Range(-11,12));
+		Vector2 newVelocity = new Vector2(Random.Range(-12,-30),Random.Range(-11,12));
 		ball.transform.SetParent(null);
 		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
 		rotation.ballPostion = ball.transform;

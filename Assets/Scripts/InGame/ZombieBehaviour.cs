@@ -32,6 +32,7 @@ public class ZombieBehaviour : MonoBehaviour {
 
 	void Update()
 	{
+		
 		if(transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin && !GetComponent<Collider2D>().enabled)
 			GetComponent<Collider2D>().enabled = true;
 		if(!GameManager.Instance.canPlay){
