@@ -11,7 +11,7 @@ public class PlayerKick : MonoBehaviour {
 	private PlayerAnimation animation;
 	[SerializeField]
 	private float maxDistance = 1f;
-	[SerializeField] private float _forceMax, _forceMin;
+	[SerializeField] private float _forceMax;
 
 	public AudioSource source;
 	public AudioClip kick;
@@ -52,6 +52,6 @@ public class PlayerKick : MonoBehaviour {
 	}
 	void Shoot (Rigidbody2D ball, Vector2 dirToShoot) {
 		animation.KickAnimation (true);
-		ball.AddForce (dirToShoot * Random.Range(_forceMin, _forceMax), ForceMode2D.Impulse);
+		ball.AddForce (dirToShoot * _forceMax, ForceMode2D.Impulse);
 	}
 }

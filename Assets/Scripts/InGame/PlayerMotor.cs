@@ -58,7 +58,7 @@ public class PlayerMotor : MonoBehaviour {
 
         if ((Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.Joystick1Button1)) &&
             velocity > minVelocity) {
-            velocity *= 2f;
+            velocity *= 1.3f;
             SurvivalManager.Instance.ChangeMultiplier(true);
         }
 
