@@ -8,6 +8,14 @@ public class BallCheck : MonoBehaviour {
 
 	Vector3 newBallVelocity = new Vector3(0,0,0);
 	public GoalType type;
+
+	private ParticleSystem _particleSystem;
+
+	void Awake()
+	{
+		_particleSystem = GetComponent<ParticleSystem>();
+	}
+
 	//Make a goal
 	private void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "Ball"){

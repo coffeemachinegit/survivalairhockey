@@ -32,6 +32,9 @@ public class PlayerMotor : MonoBehaviour {
     }
     private void Update () {
 
+        if(!GameManager.Instance.canPlay)
+            return;
+
         //Fatigue Influence -> Bigger => Good (speed % influenced by fatigue)
         fatigueSpeedPerCent = (float) ((playerStats.Thirst + playerStats.Hungry)) / totalStats;
 

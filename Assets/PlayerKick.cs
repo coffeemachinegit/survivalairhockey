@@ -10,7 +10,8 @@ public class PlayerKick : MonoBehaviour {
 
 	private PlayerAnimation animation;
 	[SerializeField]
-	private float _force, maxDistance = 1f;
+	private float maxDistance = 1f;
+	[SerializeField] private float _forceMax, _forceMin;
 
 	public AudioSource source;
 	public AudioClip kick;
@@ -24,6 +25,9 @@ public class PlayerKick : MonoBehaviour {
 
 	}
 	private void Update () {
+		if(!GameManager.Instance.canPlay)
+			return;
+
 		animation.KickAnimation (false);
 		direction = refer.direction;
 		distance = refer.distance;
@@ -48,6 +52,6 @@ public class PlayerKick : MonoBehaviour {
 	}
 	void Shoot (Rigidbody2D ball, Vector2 dirToShoot) {
 		animation.KickAnimation (true);
-		ball.AddForce (dirToShoot * _force, ForceMode2D.Impulse);
+		ball.AddForce (dirToShoot * Random.Range(_forceMin, _forceMax), ForceMode2D.Impulse);
 	}
 }

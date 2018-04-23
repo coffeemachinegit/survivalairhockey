@@ -27,7 +27,10 @@ public class StartUIManager : Singleton<StartUIManager> {
 		//Start the game
 		if(Input.GetKeyDown(KeyCode.Space) && startGameGroup.alpha == 1){
 			startGameGroup.alpha = 0;
+			startGameGroup.blocksRaycasts = false;
+			startGameGroup.interactable = false;
 			UIManager.Instance.gameGroup.alpha = 1;
+
 			GameManager.Instance.canPlay = true;
 			source.PlayOneShot(startWhistle);
 		}
