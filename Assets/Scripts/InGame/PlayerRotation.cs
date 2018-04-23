@@ -14,6 +14,7 @@ public class PlayerRotation : MonoBehaviour {
 	private void Start() {
 		if(gameObject.name == "PlayerImage"){
 			lookRadious = Mathf.Infinity;
+		}else if(gameObject.name == "GoalKeeperImage"){
 			ballPostion = GameManager.Instance.ball.transform;
 		}
 		else
