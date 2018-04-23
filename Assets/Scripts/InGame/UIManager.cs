@@ -101,7 +101,7 @@ public class UIManager : Singleton<UIManager> {
 		highScoreGroup.interactable = true;
 		int goalScore = GameManager.Instance.score - GameManager.Instance.enemy_score;
 		goalScoreText.text = "Goal Score: " + GameManager.Instance.score + "-" + GameManager.Instance.enemy_score + " = " + goalScore;
-		survivalTimeText.text = "Survival Time: " + ((int) SurvivalManager.Instance.survivalTime).ToString () + "s";
+		survivalTimeText.text = "Survival Time: " + ((int) SurvivalManager.Instance.survivalTime).ToString () + " seconds";
 		monsterScoreText.text = "Points from Monsters: " + GameManager.Instance.kill_monster_score.ToString ();
 		finalScoreText.text = "Final Score (Monster+0.7*Goal+0.3*Time) = " + GameManager.Instance.finalScore.ToString ();
 		if (PlayerPrefs.HasKey ("bestScore")) { //Procura o bestScore e seta a variável dependendo do seu valor

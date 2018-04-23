@@ -14,6 +14,7 @@ public class ShootBehaviour : MonoBehaviour {
 	[SerializeField] private Slider _healthBarSlider;
 	[SerializeField] private int _health = 2;
 	[SerializeField] private FollowMovement _movement;
+	[SerializeField] private int _scorePoints = 1;
 
 	private AudioSource _audioSource = null;
 
@@ -84,6 +85,7 @@ public class ShootBehaviour : MonoBehaviour {
 			_healthBarSlider.value = _health;
 			if (_health == 0) {
 				transform.parent.gameObject.SetActive (false);
+				GameManager.Instance.Score(_scorePoints);
 				GameManager.Instance.nShooter--;
 			}
 		}

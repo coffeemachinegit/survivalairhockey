@@ -604,6 +604,7 @@ MonoBehaviour:
   _playerSpriteRenderer: {fileID: 0}
   _health: 3
   _healthSlider: {fileID: 114246591696263190}
+  _scorePoints: 1
 --- !u!114 &114809816060460044
 MonoBehaviour:
   m_ObjectHideFlags: 1

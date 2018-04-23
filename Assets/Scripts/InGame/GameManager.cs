@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using CerfGames.Utils;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class GameManager : Singleton<GameManager> {
 
 	public bool canPlay = false;
@@ -28,6 +30,9 @@ public class GameManager : Singleton<GameManager> {
 	public AudioClip goalAudio;
 	public AudioClip enemyGoalAudio;
 
+	public TMP_Text scoreText;
+
+
 	protected override void Awake() {
 		nZombie = 0;
 		nShooter = 0;
@@ -51,6 +56,7 @@ public class GameManager : Singleton<GameManager> {
 
 	public void Score(int value){
 		kill_monster_score += value;
+		scoreText.text = kill_monster_score.ToString();
 	}
 	public void GameOver(){
 		source.volume = 0.4f;

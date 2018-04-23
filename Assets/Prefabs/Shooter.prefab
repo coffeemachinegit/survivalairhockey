@@ -630,6 +630,7 @@ MonoBehaviour:
   _healthBarSlider: {fileID: 114652380094261598}
   _health: 2
   _movement: {fileID: 114101831243549382}
+  _scorePoints: 1
 --- !u!114 &114608161785485296
 MonoBehaviour:
   m_ObjectHideFlags: 1

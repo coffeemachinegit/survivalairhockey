@@ -14,6 +14,7 @@ public class ZombieBehaviour : MonoBehaviour {
 	[SerializeField] private SpriteRenderer _playerSpriteRenderer;
 	[SerializeField] private int _health = 3;
 	[SerializeField] private Slider _healthSlider;
+	[SerializeField] private int _scorePoints = 1;
 
 
 	private FollowMovement _movement;
@@ -92,6 +93,7 @@ public class ZombieBehaviour : MonoBehaviour {
 			{
 				gameObject.SetActive(false);
 				GameManager.Instance.nZombie--;
+				GameManager.Instance.Score(_scorePoints);
 			}
 		}
 	}
