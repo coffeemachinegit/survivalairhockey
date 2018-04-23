@@ -179,11 +179,12 @@ MonoBehaviour:
   eat: {fileID: 8300000, guid: 30b472e6fd83ed6499ef92f482703bb1, type: 3}
   drink: {fileID: 8300000, guid: a9644c9a611156745aa2655205530eca, type: 3}
   source: {fileID: 0}
-  sprites:
-  - {fileID: 21300000, guid: 7308cda2ca292d443968e45ec341f9bc, type: 3}
-  - {fileID: 21300000, guid: 84f142fa1a9b03a48b3b200a1b91f09b, type: 3}
+  itemsSprite:
   - {fileID: 21300000, guid: d4b5bf211cfcc8948bab3ad00379fee7, type: 3}
   - {fileID: 21300000, guid: 9556b59b5bd7b7e409109adfa87aecbc, type: 3}
+  - {fileID: 21300000, guid: 7308cda2ca292d443968e45ec341f9bc, type: 3}
+  - {fileID: 21300000, guid: 84f142fa1a9b03a48b3b200a1b91f09b, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!212 &212228564675628710
 SpriteRenderer:
   m_ObjectHideFlags: 1
