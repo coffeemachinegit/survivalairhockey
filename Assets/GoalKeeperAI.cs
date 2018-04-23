@@ -14,7 +14,7 @@ public class GoalKeeperAI : MonoBehaviour {
 
 	private Vector2 newPos;
 	private Vector3 nullVelocity = new Vector3(0,0,0);
-
+	public float oldPosY;
 	public PlayerRotation rotation;
 	public Transform playerGoal;
 	public Transform ballPoss;
@@ -35,7 +35,12 @@ public class GoalKeeperAI : MonoBehaviour {
 		deltaX = ballTransform.position.x - gameObject.transform.position.x;
 		if(deltaX < 5 && !ballCatch){
 			newPos.y = Mathf.Clamp(ballTransform.position.y,yDown,yTop);
-			animator.SetBool("isWalking",true);
+			oldPosY = transform.position.y;
+			if(newPos.y != oldPosY){
+				animator.SetBool("isWalking",true);
+			}else{
+				animator.SetBool("isWalking",false);
+			}
 			transform.position = Vector2.MoveTowards(transform.position,newPos,speed * Time.deltaTime);
 		}else
 			animator.SetBool("isWalking",false);

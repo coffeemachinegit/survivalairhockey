@@ -7,6 +7,7 @@ public class PlayerRotation : MonoBehaviour {
 	public float lookRadious, _rotationSpeed = 5f;
 	public Vector3 direction;
 	public float angle, distance;
+
 	Quaternion rotation;
 	// Use this for initialization
 	// Update is called once per frame
