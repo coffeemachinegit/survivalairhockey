@@ -28,9 +28,7 @@ public class GameManager : Singleton<GameManager> {
 	public AudioSource bg2Source;
 	public AudioClip endGameWhistle;
 	public AudioClip goalAudio;
-	public AudioClip enemyGoalAudio;
-
-	public TMP_Text scoreText;
+	public AudioClip enemyGoalAudio;	public TMP_Text scoreText;
 
 	protected override void Awake() {
 		nZombie = 0;

@@ -9,6 +9,12 @@ public class UIManager : Singleton<UIManager> {
 
 	//GameUI
 	public TextMeshProUGUI playerStatusText;
+	
+	public Image statusImage;
+	public Sprite fadigated,starving;
+
+	Color AlphaSet;
+
 
 	//The canvas group from each UI Screen
 	public CanvasGroup gameGroup;
@@ -44,6 +50,7 @@ public class UIManager : Singleton<UIManager> {
 	float time;
 
 	protected override void Awake () {
+		AlphaSet = new Color(255,255,255,100);
 		IsPersistentBetweenScenes = false;
 		base.Awake ();
 	}
@@ -96,14 +103,13 @@ public class UIManager : Singleton<UIManager> {
 			hpSlider.value -= value;
 		}
 		if (GameManager.Instance.isFadigated && (hungrySlider.value > 0)) {
-			playerStatusText.text = "Fadigated";
-			playerStatusText.color = Color.red;
+			statusImage.sprite = fadigated;
+			statusImage.color = AlphaSet;
 		} else if (hungrySlider.value <= 0) {
-			playerStatusText.text = "Starving";
-			playerStatusText.color = Color.red;
+			statusImage.sprite = starving;
+			statusImage.color = AlphaSet;
 		} else {
-			playerStatusText.text = "Healthy";
-			playerStatusText.color = Color.white;
+			statusImage.color = new Color(0,0,0,0);
 		}
 
 	}
