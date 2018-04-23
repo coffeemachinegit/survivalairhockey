@@ -25,7 +25,6 @@ public class ItemSpawner : MonoBehaviour {
 			if (GameManager.Instance.canPlay) {
 				if (GameManager.Instance.nItem <= maxItem) {
 					int type = Random.Range (0, 4);
-					Debug.Log (type);
 					itemToSpawn = itemPool.GetPooledObject ();
 					itemToSpawn.transform.position = generateRandomCoord ();
 					survivalItem = itemToSpawn.GetComponent<SurvivalItem> ();

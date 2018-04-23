@@ -12,6 +12,8 @@ public class SurvivalItem : MonoBehaviour {
 	public AudioClip eat,drink;
 	public AudioSource source;
 
+	public Sprite[] sprites = new Sprite[4];
+
 	private void Start() {
 		source = GameManager.Instance.bgSource;
 	}

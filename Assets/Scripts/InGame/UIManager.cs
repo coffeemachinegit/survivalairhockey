@@ -35,6 +35,10 @@ public class UIManager : Singleton<UIManager> {
 	Highscores highscoreManager;
 
 	//----------------
+
+	public TextMeshProUGUI woodQtd;
+	public TextMeshProUGUI nailQtd;
+
 	float time;
 
 	protected override void Awake () {
@@ -51,6 +55,14 @@ public class UIManager : Singleton<UIManager> {
 		highscoreManager = GetComponent<Highscores> ();
 
 		//StartCoroutine("RefreshHighScores");
+	}
+
+	public void UpdateCraftUI(bool flag, float qtd){
+		if(flag){
+			woodQtd.text = "x"+qtd;
+		}else{
+			nailQtd.text = "x"+qtd;
+		}
 	}
 
 	public void OnHighScoresDownloaded (HighScoreData[] highscoreList) {

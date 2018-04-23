@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour {
 	[SerializeField]private float hungry;
 	[SerializeField]private float thirst;
 
+	[SerializeField]private float damageReceivePercentual;
+
 	public float Hp{
 		get{
 			return hp;
@@ -32,6 +34,15 @@ public class PlayerStats : MonoBehaviour {
 		}
 		set{
 			thirst = value;
+		}
+	}
+
+	public float DamageReceivePercentual{
+		get{
+			return damageReceivePercentual;
+		}
+		set{
+			damageReceivePercentual = value;
 		}
 	}
 }

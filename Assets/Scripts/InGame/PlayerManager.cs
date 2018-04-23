@@ -19,9 +19,9 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public void TakeDamage(float value){
 		if(!GameManager.Instance.canPlay)
 			return;
-
-		playerStats.Hp -= value;
-		UIManager.Instance.UpdateSliderValue("life",value);
+		float realValue = value * playerStats.DamageReceivePercentual;
+		playerStats.Hp -= realValue;
+		UIManager.Instance.UpdateSliderValue("life",realValue);
 		if(playerStats.Hp <= 0){
 			GameManager.Instance.GameOver();
 		}

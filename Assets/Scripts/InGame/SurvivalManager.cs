@@ -71,7 +71,7 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 				PlayerManager.Instance.playerStats.Hungry = 100;
 			UIManager.Instance.UpdateSliderValue("hungry",PlayerManager.Instance.playerStats.Hungry);
 		}else{
-			if(PlayerManager.Instance.playerStats.Hungry+value < 100)
+			if(PlayerManager.Instance.playerStats.Thirst+value < 100)
 				PlayerManager.Instance.playerStats.Thirst += value;
 			else
 				PlayerManager.Instance.playerStats.Thirst = 100;
