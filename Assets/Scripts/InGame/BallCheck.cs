@@ -8,11 +8,7 @@ public class BallCheck : MonoBehaviour {
 	Vector3 newBallVelocity = new Vector3 (0, 0, 0);
 	public GoalType type;
 
-	private ParticleSystem _particleSystem;
-
-	void Awake () {
-		_particleSystem = GetComponent<ParticleSystem> ();
-	}
+	[SerializeField] private ParticleSystem[] _particleSystems;
 
 	//Make a goal
 	private void OnTriggerEnter2D (Collider2D other) {
@@ -22,6 +18,10 @@ public class BallCheck : MonoBehaviour {
 				ResetBall(other);
 			}
 			else if (type == GoalType.Enemy) {
+				foreach (ParticleSystem particleSystem in _particleSystems)
+				{
+					particleSystem.Play();
+				}
 				GameManager.Instance.Goal ();
 				ResetBall(other);
 			}
