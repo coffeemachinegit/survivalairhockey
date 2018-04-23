@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour {
 						enemyToSpawn = enemypool.GetPooledObject ();
 						enemyToSpawn.transform.position = generateRandomCoord ();
 						enemyToSpawn.SetActive (true);
-						enemyToSpawn.GetComponent<Collider2D> ().enabled = false;
+						enemyToSpawn.GetComponentInChildren<Collider2D> ().enabled = false;
 						GameManager.Instance.nShooter++;
 					}
 				}

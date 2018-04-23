@@ -22,7 +22,7 @@ public class ItemSpawner : MonoBehaviour {
 	IEnumerator spawn () {
 		while (true) {
 			yield return new WaitForSeconds (timeToSpawn);
-			if (nItem <= maxItem) {
+			if (GameManager.Instance.nItem <= maxItem) {
 				int type = Random.Range(0,4);
 				Debug.Log(type);
 				itemToSpawn = itemPool.GetPooledObject ();
@@ -49,7 +49,7 @@ public class ItemSpawner : MonoBehaviour {
 				}
 				survivalItem = null;
 				itemToSpawn.SetActive (true);
-				nItem++;
+				GameManager.Instance.nItem++;
 			}
 		}
 	}
@@ -59,7 +59,7 @@ public class ItemSpawner : MonoBehaviour {
 
 	}
 	public void UseItem (GameObject item) {
-		nItem--;
+		
 		item.SetActive (false);
 	}
 }
