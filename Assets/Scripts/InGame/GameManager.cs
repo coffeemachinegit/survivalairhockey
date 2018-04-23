@@ -32,7 +32,6 @@ public class GameManager : Singleton<GameManager> {
 
 	public TMP_Text scoreText;
 
-
 	protected override void Awake() {
 		nZombie = 0;
 		nShooter = 0;
@@ -71,8 +70,4 @@ public class GameManager : Singleton<GameManager> {
 	public void ReloadGame(){
 		SceneManager.LoadScene("GameScene");
 	}
-
-	
-
-
 }
