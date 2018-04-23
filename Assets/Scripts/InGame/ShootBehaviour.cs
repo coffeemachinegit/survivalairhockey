@@ -72,7 +72,6 @@ public class ShootBehaviour : MonoBehaviour {
 
 		StartCoroutine (_shootPositions[index].GetComponentInChildren<Smoke> ().Smoking ());
 
-		print ("SHOOT!");
 		GameObject bullet = _pool.GetPooledObject ();
 		bullet.transform.position = position;
 		bullet.transform.rotation = transform.rotation;
