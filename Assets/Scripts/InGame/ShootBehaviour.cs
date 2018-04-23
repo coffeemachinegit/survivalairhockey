@@ -41,19 +41,21 @@ public class ShootBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin && !GetComponent<Collider2D> ().enabled)
-			GetComponent<Collider2D> ().enabled = true;
 		if (!GameManager.Instance.canPlay)
 			return;
+		
+		if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin && !GetComponent<Collider2D> ().enabled)
+			GetComponent<Collider2D> ().enabled = true;
 
 		_time += Time.deltaTime;
-		if (_time >= _nextTimeToShoot) {
+		if (_time >= _nextTimeToShoot)
+		{
 			float dist = (transform.position - _transformToShoot.position).magnitude;
 			if (dist <= _distanceToShoot) {
-				// if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin) {
+				if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin) {
 					Shoot ();
 					_nextTimeToShoot = Time.timeSinceLevelLoad + Random.Range (_fireRate, _fireRate + 2f);
-				// }
+				}
 			}
 		}
 	}
