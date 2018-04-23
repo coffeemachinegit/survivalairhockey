@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ShootBehaviour : MonoBehaviour {
 
 	[SerializeField] private float _fireRate = 1f; // 1 second for each shot
-	[SerializeField] private float _distanceToShoot;
 	[SerializeField] private Transform _transformToShoot;
 	[SerializeField] private ObjectPool _pool;
 	[SerializeField] private Transform[] _shootPositions;
@@ -14,13 +13,13 @@ public class ShootBehaviour : MonoBehaviour {
 	[SerializeField] private Smoke _smokeLeft, _smokeRight;
 	[SerializeField] private Slider _healthBarSlider;
 	[SerializeField] private int _health = 2;
+	[SerializeField] private FollowMovement _movement;
 
 	private AudioSource _audioSource = null;
 
 	private float _time;
 	private float _nextTimeToShoot;
 	void Awake () {
-		_nextTimeToShoot = Time.timeSinceLevelLoad + _fireRate;
 		_time = 0f;
 		_audioSource = GetComponent<AudioSource> ();
 		_pool = GameObject.Find ("BulletPool").GetComponent<ObjectPool> ();
@@ -32,6 +31,8 @@ public class ShootBehaviour : MonoBehaviour {
 		_health = 2;
 		_healthBarSlider.maxValue = _health;
 		_healthBarSlider.value = _health;
+		_nextTimeToShoot = _fireRate;
+		_time = 0f;
 	}
 
 	private void Start () {
@@ -47,17 +48,20 @@ public class ShootBehaviour : MonoBehaviour {
 		if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin && !GetComponent<Collider2D> ().enabled)
 			GetComponent<Collider2D> ().enabled = true;
 
-		_time += Time.deltaTime;
-		if (_time >= _nextTimeToShoot)
+		if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin) 
 		{
-			float dist = (transform.position - _transformToShoot.position).magnitude;
-			if (dist <= _distanceToShoot) {
-				if (transform.position.y < CameraUtil.Ymax && transform.position.y > CameraUtil.Ymin) {
+			_time += Time.deltaTime;
+			
+			if (!_movement.canMove)
+			{
+				if(_time >= _nextTimeToShoot){
 					Shoot ();
-					_nextTimeToShoot = Time.timeSinceLevelLoad + Random.Range (_fireRate, _fireRate + 2f);
+					_nextTimeToShoot = _time + Random.Range (_fireRate, _fireRate + 2f);
 				}
 			}
 		}
+
+
 	}
 
 	void Shoot () {
