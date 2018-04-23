@@ -58,6 +58,7 @@ public class GoalKeeperAI : MonoBehaviour {
 				other.gameObject.transform.SetParent(gameObject.transform);
 				other.gameObject.transform.position = ballPoss.position;
 				GameManager.Instance.ballRB.velocity = Vector2.zero;
+				other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
 				StartCoroutine(KickBall(other.gameObject));
 			}
 		}
@@ -67,6 +68,7 @@ public class GoalKeeperAI : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		Vector2 newVelocity = new Vector2(Random.Range(-12,-30),Random.Range(-11,12));
 		ball.transform.SetParent(null);
+		ball.GetComponent<CircleCollider2D>().enabled = true;
 		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
 		rotation.ballPostion = ball.transform;
 		ballCatch = false;
