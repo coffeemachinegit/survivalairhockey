@@ -136,12 +136,14 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 	public void InsertName () {
-		GameManager.Instance.playerName = UIManager.Instance.nameInput.text;
-		insertNameGroup.blocksRaycasts = false;
-		insertNameGroup.interactable = false;
-		insertNameGroup.alpha = 0;
-		SaveHighScore ();
-		ShowHighScore ();
+		if(UIManager.Instance.nameInput.text != ""){
+			GameManager.Instance.playerName = UIManager.Instance.nameInput.text;
+			insertNameGroup.blocksRaycasts = false;
+			insertNameGroup.interactable = false;
+			insertNameGroup.alpha = 0;
+			SaveHighScore ();
+			ShowHighScore ();
+		}
 	}
 
 	public void SaveHighScore () {

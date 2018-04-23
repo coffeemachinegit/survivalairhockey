@@ -10,6 +10,8 @@ public class ItemSpawner : MonoBehaviour {
 	[SerializeField]
 	public float timeToSpawn = 1f;
 
+	public bool craftFlag;
+
 	GameObject itemToSpawn;
 
 	private void Start () {
@@ -20,11 +22,20 @@ public class ItemSpawner : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (timeToSpawn);
 			if (GameManager.Instance.canPlay) {
-				if (GameManager.Instance.nItem <= maxItem) {
-					itemToSpawn = itemPool.GetPooledObject ();
-					itemToSpawn.transform.position = generateRandomCoord ();
-					itemToSpawn.SetActive (true);
-					GameManager.Instance.nItem++;
+				if(craftFlag){
+					if (GameManager.Instance.nCraftItem < maxItem) {
+						itemToSpawn = itemPool.GetPooledObject ();
+						itemToSpawn.transform.position = generateRandomCoord ();
+						itemToSpawn.SetActive (true);
+						GameManager.Instance.nCraftItem++;
+					}
+				}else{
+					if (GameManager.Instance.nItem < maxItem) {
+						itemToSpawn = itemPool.GetPooledObject ();
+						itemToSpawn.transform.position = generateRandomCoord ();
+						itemToSpawn.SetActive (true);
+						GameManager.Instance.nItem++;
+					}
 				}
 			}
 		}

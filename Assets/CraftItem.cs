@@ -44,6 +44,7 @@ public class CraftItem : MonoBehaviour {
 		if(other.tag == "Player"){
 			CraftManager.Instance.Crafting(flag);
 			gameObject.SetActive(false);
+			GameManager.Instance.nCraftItem--;
 		}
 	}
 }

@@ -10,7 +10,8 @@ public class CraftManager : Singleton<CraftManager> {
 
 	public int option = 0;
 
-	public GameObject shoulder,helmet,foot;
+	public GameObject shoulder,helmet,footLeft,footRight;
+	public Sprite footSprites;
 
 	public AudioSource source;
 	public AudioClip craftSFX;
@@ -34,23 +35,25 @@ public class CraftManager : Singleton<CraftManager> {
 	}
 
 	public void CheckCraft(){
-		if (craftNail == 0 && craftWood == 0){
+		if (craftNail == 0 && craftWood == 0 && option < 3){
 			if(option == 0){
-				//foot.SetActive(true);
 				option++;
 				craftNail = 2;
 				craftWood = 3;
+				footLeft.GetComponent<SpriteRenderer>().sprite = footSprites;
+				footRight.GetComponent<SpriteRenderer>().sprite = footSprites;
 				UIManager.Instance.UpdateCraftUI(true,craftWood);
 				UIManager.Instance.UpdateCraftUI(false,craftNail);
 			}else if(option == 1){
-				//helmet.SetActive(true);
 				option++;
 				craftNail = 3;
 				craftWood = 4;
+				helmet.SetActive(true);
 				UIManager.Instance.UpdateCraftUI(true,craftWood);
 				UIManager.Instance.UpdateCraftUI(false,craftNail);
 			}else if(option == 2){
-				//shoulder.SetActive(true);
+				shoulder.SetActive(true);
+				option++;
 			}
 			PlayerManager.Instance.playerStats.DamageReceivePercentual -= 0.1f;
 			source.PlayOneShot(craftSFX);

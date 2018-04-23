@@ -55,3 +55,6 @@ TagManager:
   - name: foreground
     uniqueID: 250184055
     locked: 0
+  - name: Armor
+    uniqueID: 1859550145
+    locked: 0

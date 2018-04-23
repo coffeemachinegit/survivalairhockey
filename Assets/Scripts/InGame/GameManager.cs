@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager> {
 	public bool canPlay = false;
 	public int score = 0;
 
-	public int nZombie,nShooter,nItem;
+	public int nZombie,nShooter,nItem,nCraftItem;
 	public int enemy_score = 0;
 	public int kill_monster_score = 0;
 	public float finalScore = 0f;
@@ -36,6 +36,7 @@ public class GameManager : Singleton<GameManager> {
 		nZombie = 0;
 		nShooter = 0;
 		nItem = 0;
+		nCraftItem = 0;
 		IsPersistentBetweenScenes = false;
 		ballPosition = ball.transform;
 		ballRB = ball.GetComponent<Rigidbody2D>();
