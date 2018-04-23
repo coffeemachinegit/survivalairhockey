@@ -88,7 +88,7 @@ public class UIManager : Singleton<UIManager> {
 		survivalTimeText.text ="Survival Time: "+((int)SurvivalManager.Instance.survivalTime).ToString()+"s";
 		monsterScoreText.text = "Points from Monsters: "+GameManager.Instance.kill_monster_score.ToString();
 		finalScoreText.text = "Final Score (Monster+0.7*Goal+0.3*Time) = "+GameManager.Instance.finalScore.ToString();
-		if(PlayerPrefs.HasKey("bestscore")){ //Procura o bestScore e seta a variável dependendo do seu valor
+		if(PlayerPrefs.HasKey("bestScore")){ //Procura o bestScore e seta a variável dependendo do seu valor
 			if(PlayerPrefs.GetFloat("bestScore") < GameManager.Instance.finalScore){
 				PlayerPrefs.SetFloat("bestScore", GameManager.Instance.finalScore);
 			}
@@ -96,6 +96,7 @@ public class UIManager : Singleton<UIManager> {
 			PlayerPrefs.SetFloat("bestScore", GameManager.Instance.finalScore);
 		}
 		bestScoreText.text = "Best Score: "+PlayerPrefs.GetFloat("bestScore");
+		PlayerPrefs.Save();
 		highscoreManager.DownloadHighScore();
 	}
 

@@ -12,6 +12,9 @@ public class PlayerKick : MonoBehaviour {
 	[SerializeField]
 	private float _force,maxDistance=1f;
 
+	public AudioSource source;
+	public AudioClip kick;
+
 	PlayerRotation refer;
 	private void Start () {
 		animation = GetComponentInChildren<PlayerAnimation>();
@@ -24,7 +27,8 @@ public class PlayerKick : MonoBehaviour {
 		direction = refer.direction;
 		distance = refer.distance;
 		if (distance <= maxDistance) {
-			if (Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.Joystick1Button0)) {
+			if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.Joystick1Button0)) {
+				source.PlayOneShot(kick);
 				Shoot (ball, direction);
 			}
 		}

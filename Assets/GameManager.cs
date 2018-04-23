@@ -21,6 +21,8 @@ public class GameManager : Singleton<GameManager> {
 
 	public AudioSource source;
 	public AudioClip endGameWhistle;
+	public AudioClip goalAudio;
+	public AudioClip enemyGoalAudio;
 
 	protected override void Awake() {
 		nZombie = 0;
@@ -33,10 +35,12 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	public void Goal(){
+		source.PlayOneShot(goalAudio);
 		score++;
 		UIManager.Instance.ChangeScore(score,enemy_score);
 	}
 	public void EnemyGoal(){
+		source.PlayOneShot(enemyGoalAudio);
 		enemy_score++;
 		UIManager.Instance.ChangeScore(score,enemy_score);
 	}
@@ -45,6 +49,7 @@ public class GameManager : Singleton<GameManager> {
 		kill_monster_score += value;
 	}
 	public void GameOver(){
+		source.volume = 0.4f;
 		source.PlayOneShot(endGameWhistle);
 		UIManager.Instance.ShowInsertName();
 		canPlay = false;
