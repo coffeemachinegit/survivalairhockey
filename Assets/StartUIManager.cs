@@ -30,9 +30,9 @@ public class StartUIManager : Singleton<StartUIManager> {
 			startGameGroup.blocksRaycasts = false;
 			startGameGroup.interactable = false;
 			UIManager.Instance.gameGroup.alpha = 1;
-
 			GameManager.Instance.canPlay = true;
 			source.PlayOneShot(startWhistle);
+			GameManager.Instance.bg2Source.Play();
 		}
 	}
 

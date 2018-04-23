@@ -19,6 +19,8 @@ public class GoalKeeperAI : MonoBehaviour {
 	public Transform playerGoal;
 	public Transform ballPoss;
 
+	public AudioSource source;
+	public AudioClip kickSFX;
 	public Animator animator;
 
 	
@@ -70,6 +72,7 @@ public class GoalKeeperAI : MonoBehaviour {
 		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
 		rotation.ballPostion = ball.transform;
 		ballCatch = false;
+		source.PlayOneShot(kickSFX);
 
 	}
 }

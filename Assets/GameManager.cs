@@ -21,6 +21,7 @@ public class GameManager : Singleton<GameManager> {
 
 	public AudioSource source;
 	public AudioSource bgSource;
+	public AudioSource bg2Source;
 	public AudioClip endGameWhistle;
 	public AudioClip goalAudio;
 	public AudioClip enemyGoalAudio;
