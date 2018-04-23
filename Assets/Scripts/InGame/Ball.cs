@@ -12,18 +12,4 @@ public class Ball : MonoBehaviour {
 		rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-		
-	}
-
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-		if(otherRb != null && rigidbody2D.velocity.magnitude <= minSpeed)
-		{
-			rigidbody2D.velocity = Vector2.one;
-		}
-		print("BALL");
-	}
 }

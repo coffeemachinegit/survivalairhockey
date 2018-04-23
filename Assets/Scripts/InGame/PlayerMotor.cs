@@ -33,15 +33,23 @@ public class PlayerMotor : MonoBehaviour {
     }
     void FixedUpdate () {
 
-        if (!GameManager.Instance.canPlay)
+        if (!GameManager.Instance.canPlay){
+            playerBody.velocity = Vector2.zero;
             return;
-        float posX = Mathf.Clamp (transform.position.x + movX * velocity * Time.deltaTime, CameraUtil.Xmin, CameraUtil.Xmax);
-        float posY = Mathf.Clamp (transform.position.y + movY * velocity * Time.deltaTime, CameraUtil.Ymin, CameraUtil.Ymax);
+        }
+        //float posX = Mathf.Clamp (transform.position.x + movX * velocity * Time.deltaTime, CameraUtil.Xmin, CameraUtil.Xmax);
+        //float posY = Mathf.Clamp (transform.position.y + movY * velocity * Time.deltaTime, CameraUtil.Ymin, CameraUtil.Ymax);
+        //limitador.Set (posX, posY);
+        //playerBody.position = limitador;
+        playerBody.velocity = new Vector3 (movX*velocity,movY*velocity,0f);
+        float posX = Mathf.Clamp (playerBody.position.x, CameraUtil.Xmin, CameraUtil.Xmax);
+        float posY = Mathf.Clamp (playerBody.position.y, CameraUtil.Ymin, CameraUtil.Ymax);
         limitador.Set (posX, posY);
         playerBody.position = limitador;
     }
     private void Update () {
-
+        if (!GameManager.Instance.canPlay)
+            return;
         //Fatigue Influence -> Bigger => Good (speed % influenced by fatigue)
         fatigueSpeedPerCent = (float) ((playerStats.Thirst + playerStats.Hungry)) / totalStats;
 

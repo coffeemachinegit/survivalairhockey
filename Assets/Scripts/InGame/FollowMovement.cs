@@ -24,6 +24,7 @@ public class FollowMovement : MonoBehaviour {
 
 	void Update()
 	{
+		_rigidbody2d.velocity = Vector2.zero;
 		float dist = (transform.position - _transformToFollow.position).magnitude;
 		_canMove = dist >= _distToStop ? true : false;
 	}
