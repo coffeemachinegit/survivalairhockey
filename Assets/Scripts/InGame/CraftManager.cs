@@ -42,6 +42,7 @@ public class CraftManager : Singleton<CraftManager> {
 				craftWood = 3;
 				footLeft.GetComponent<SpriteRenderer>().sprite = footSprites;
 				footRight.GetComponent<SpriteRenderer>().sprite = footSprites;
+				UIManager.Instance.UpdateCraftItem(option);
 				UIManager.Instance.UpdateCraftUI(true,craftWood);
 				UIManager.Instance.UpdateCraftUI(false,craftNail);
 			}else if(option == 1){
@@ -49,11 +50,13 @@ public class CraftManager : Singleton<CraftManager> {
 				craftNail = 3;
 				craftWood = 4;
 				helmet.SetActive(true);
+				UIManager.Instance.UpdateCraftItem(option);
 				UIManager.Instance.UpdateCraftUI(true,craftWood);
 				UIManager.Instance.UpdateCraftUI(false,craftNail);
 			}else if(option == 2){
 				shoulder.SetActive(true);
 				option++;
+				UIManager.Instance.UpdateCraftItem(option);
 			}
 			PlayerManager.Instance.playerStats.DamageReceivePercentual -= 0.1f;
 			source.PlayOneShot(craftSFX);

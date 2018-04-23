@@ -39,6 +39,8 @@ public class UIManager : Singleton<UIManager> {
 	public TextMeshProUGUI woodQtd;
 	public TextMeshProUGUI nailQtd;
 
+	public RawImage foot,healmet,shoulder;
+
 	float time;
 
 	protected override void Awake () {
@@ -55,6 +57,16 @@ public class UIManager : Singleton<UIManager> {
 		highscoreManager = GetComponent<Highscores> ();
 
 		//StartCoroutine("RefreshHighScores");
+	}
+
+	public void UpdateCraftItem(int flag){
+		if(flag == 1){
+			foot.color = Color.white;
+		}else if(flag == 2){
+			healmet.color = Color.white;
+		}else if(flag == 3){
+			shoulder.color = Color.white;
+		}
 	}
 
 	public void UpdateCraftUI(bool flag, float qtd){
