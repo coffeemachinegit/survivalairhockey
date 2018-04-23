@@ -28,7 +28,7 @@ public class ShootBehaviour : MonoBehaviour {
 		_healthBarSlider.value = _health;
 	}
 
-	void Enable () {
+	void OnEnable () {
 		_health = 2;
 		_healthBarSlider.maxValue = _health;
 		_healthBarSlider.value = _health;
@@ -37,6 +37,7 @@ public class ShootBehaviour : MonoBehaviour {
 	private void Start () {
 		_transformToShoot = PlayerManager.Instance.playerTransform;
 	}
+
 
 	// Update is called once per frame
 	void Update () {

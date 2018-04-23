@@ -178,7 +178,7 @@ MonoBehaviour:
   type: 1
   eat: {fileID: 8300000, guid: 30b472e6fd83ed6499ef92f482703bb1, type: 3}
   drink: {fileID: 8300000, guid: a9644c9a611156745aa2655205530eca, type: 3}
-  source: {fileID: 82666865211264032}
+  source: {fileID: 0}
 --- !u!212 &212228564675628710
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -25,14 +25,12 @@ public class EnemySpawner : MonoBehaviour {
 			if (GameManager.Instance.canPlay) {
 				if (flag) {
 					if (GameManager.Instance.nZombie <= maxEnemy) {
-						Debug.Log("N Zombie:"+GameManager.Instance.nZombie);
-						Debug.Log("Max Enemy:"+maxEnemy);
 						enemyToSpawn = enemypool.GetPooledObject ();
 						enemyToSpawn.transform.position = generateRandomCoord ();
 						enemyToSpawn.SetActive (true);
 						enemyToSpawn.GetComponent<Collider2D> ().enabled = false;
 						GameManager.Instance.nZombie++;
-					}
+					} 
 				} else {
 					if (GameManager.Instance.nShooter <= maxEnemy) {
 						enemyToSpawn = enemypool.GetPooledObject ();
