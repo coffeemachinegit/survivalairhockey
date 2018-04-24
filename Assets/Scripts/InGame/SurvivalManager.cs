@@ -41,6 +41,7 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 
 	/*
 	 * Drain player status based on a flag
+	 * 
 	 */
 	void DrainStatus(string flag){
 		if(flag == "hungry" && PlayerManager.Instance.playerStats.Hungry > 0){
