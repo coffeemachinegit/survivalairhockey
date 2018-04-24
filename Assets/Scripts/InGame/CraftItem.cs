@@ -38,6 +38,7 @@ public class CraftItem : MonoBehaviour {
 			woodCollider.enabled = false;
 			nailCollider.enabled = true;
 		}
+		StartCoroutine(Despawn());
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
@@ -46,5 +47,11 @@ public class CraftItem : MonoBehaviour {
 			gameObject.transform.parent.gameObject.SetActive(false);
 			GameManager.Instance.nCraftItem--;
 		}
+	}
+
+	IEnumerator Despawn(){
+		yield return new WaitForSeconds(5f);
+		gameObject.transform.parent.gameObject.SetActive(false);
+		GameManager.Instance.nCraftItem--;
 	}
 }

@@ -26,19 +26,19 @@ public class SurvivalItem : MonoBehaviour {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		if (itemChoosed == 0) { //Agua
 			spriteRenderer.sprite = itemsSprite[0];
-			value = 10;
+			value = 30;
 			type = ItemType.Liquid;
 		} else if (itemChoosed == 1) { //Refri
 			spriteRenderer.sprite = itemsSprite[1];
-			value = 5;
+			value = 30;
 			type = ItemType.Liquid;
 		} else if (itemChoosed == 2) { //Burgão
 			spriteRenderer.sprite = itemsSprite[2];
-			value = 10;
+			value = 30;
 			type = ItemType.Food;
 		} else { //Franguinho
 			spriteRenderer.sprite = itemsSprite[3];
-			value = 5;
+			value = 30;
 			type = ItemType.Food;
 		}
 	}

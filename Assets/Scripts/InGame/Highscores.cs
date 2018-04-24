@@ -23,10 +23,8 @@ public class Highscores : MonoBehaviour {
 		yield return www;
 
 		if(string.IsNullOrEmpty(www.error)){
-			Debug.Log("Upload Sucessful");
 			DownloadHighScore();
 		}else{
-			Debug.Log("Error Uploading: "+www.error);
 		}
 	}
 
@@ -38,7 +36,6 @@ public class Highscores : MonoBehaviour {
 			FormatHighScore(www.text);
 			UIManager.Instance.OnHighScoresDownloaded(highScoreList);
 		}else{
-			Debug.Log("Error Downloading: "+www.error);
 		}
 	}
 

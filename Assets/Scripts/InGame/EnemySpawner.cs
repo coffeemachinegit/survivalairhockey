@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour {
 			yield return new WaitForSeconds (timeToSpawn);
 			if (GameManager.Instance.canPlay) {
 				if (flag) {
-					if (GameManager.Instance.nZombie <= maxEnemy) {
+					if (GameManager.Instance.nZombie < maxEnemy) {
 						enemyToSpawn = enemypool.GetPooledObject ();
 						enemyToSpawn.transform.position = generateRandomCoord ();
 						enemyToSpawn.SetActive (true);
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour {
 						GameManager.Instance.nZombie++;
 					} 
 				} else {
-					if (GameManager.Instance.nShooter <= maxEnemy) {
+					if (GameManager.Instance.nShooter < maxEnemy) {
 						enemyToSpawn = enemypool.GetPooledObject ();
 						enemyToSpawn.transform.position = generateRandomCoord ();
 						enemyToSpawn.SetActive (true);

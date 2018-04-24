@@ -19,12 +19,11 @@ public class SurvivalManager : Singleton<SurvivalManager> {
 	private void Start() {
 		PlayerManager.Instance.playerStats.Hungry = 100;
 		PlayerManager.Instance.playerStats.Thirst = 100;
-		hungryMultiplier = 2f;
+		hungryMultiplier = 3.32f;
 		hungryStart = hungryMultiplier;
-		thirstMultiplier = 2f;
+		thirstMultiplier = 3.32f;
 		thirstStart = thirstMultiplier;
-		hungryNew = 3f;
-		thirstNew = 4f;
+		thirstNew = 6.64f;
 	}
 
 	private void Update() {
