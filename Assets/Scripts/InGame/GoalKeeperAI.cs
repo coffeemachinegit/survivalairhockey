@@ -52,7 +52,7 @@ public class GoalKeeperAI : MonoBehaviour {
 			return;
 
 		if(other.gameObject.tag == "Ball"){
-			if(Random.Range(0,2) == 1){
+			if(Random.Range(0,2) == 1 && !ballCatch){
 				ballCatch = true;
 				rotation.ballPostion = playerGoal;
 				other.gameObject.transform.SetParent(gameObject.transform);
@@ -60,6 +60,7 @@ public class GoalKeeperAI : MonoBehaviour {
 				GameManager.Instance.ballRB.velocity = Vector2.zero;
 				other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
 				StartCoroutine(KickBall(other.gameObject));
+				Debug.Log("Entrou");
 			}
 		}
 	}
@@ -67,9 +68,10 @@ public class GoalKeeperAI : MonoBehaviour {
 	IEnumerator KickBall(GameObject ball){
 		yield return new WaitForSeconds(1);
 		Vector2 newVelocity = new Vector2(Random.Range(-12,-30),Random.Range(-11,12));
-		ball.transform.SetParent(null);
 		ball.GetComponent<CircleCollider2D>().enabled = true;
+		ball.transform.SetParent(null);
 		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
+		Debug.Log("entrou aqui");
 		rotation.ballPostion = ball.transform;
 		ballCatch = false;
 		source.PlayOneShot(kickSFX);
