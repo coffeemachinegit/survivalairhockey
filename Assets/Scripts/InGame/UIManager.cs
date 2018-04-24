@@ -9,12 +9,12 @@ public class UIManager : Singleton<UIManager> {
 
 	//GameUI
 	public TextMeshProUGUI playerStatusText;
-	
-	public Image statusImage;
-	public Sprite fadigated,starving;
+
+	public GameObject caveira, gota;
+	public Sprite fadigated,
+	starving;
 
 	Color AlphaSet;
-
 
 	//The canvas group from each UI Screen
 	public CanvasGroup gameGroup;
@@ -45,12 +45,16 @@ public class UIManager : Singleton<UIManager> {
 	public TextMeshProUGUI woodQtd;
 	public TextMeshProUGUI nailQtd;
 
-	public RawImage foot,healmet,shoulder;
+	public RawImage foot,
+	healmet,
+	shoulder;
 
 	float time;
 
 	protected override void Awake () {
-		AlphaSet = new Color(255,255,255,100);
+		caveira.SetActive(false);
+		gota.SetActive(false);
+		AlphaSet = new Color (255, 255, 255, 100);
 		IsPersistentBetweenScenes = false;
 		base.Awake ();
 	}
@@ -66,21 +70,21 @@ public class UIManager : Singleton<UIManager> {
 		//StartCoroutine("RefreshHighScores");
 	}
 
-	public void UpdateCraftItem(int flag){
-		if(flag == 1){
+	public void UpdateCraftItem (int flag) {
+		if (flag == 1) {
 			foot.color = Color.white;
-		}else if(flag == 2){
+		} else if (flag == 2) {
 			healmet.color = Color.white;
-		}else if(flag == 3){
+		} else if (flag == 3) {
 			shoulder.color = Color.white;
 		}
 	}
 
-	public void UpdateCraftUI(bool flag, float qtd){
-		if(flag){
-			woodQtd.text = "x"+qtd;
-		}else{
-			nailQtd.text = "x"+qtd;
+	public void UpdateCraftUI (bool flag, float qtd) {
+		if (flag) {
+			woodQtd.text = "x" + qtd;
+		} else {
+			nailQtd.text = "x" + qtd;
 		}
 	}
 
@@ -103,13 +107,14 @@ public class UIManager : Singleton<UIManager> {
 			hpSlider.value -= value;
 		}
 		if (GameManager.Instance.isFadigated && (hungrySlider.value > 0)) {
-			statusImage.sprite = fadigated;
-			statusImage.color = AlphaSet;
+			gota.SetActive(true);
+			caveira.SetActive(false);
 		} else if (hungrySlider.value <= 0) {
-			statusImage.sprite = starving;
-			statusImage.color = AlphaSet;
+			gota.SetActive(false);
+			caveira.SetActive(true);
 		} else {
-			statusImage.color = new Color(0,0,0,0);
+			gota.SetActive(false);
+			caveira.SetActive(false);
 		}
 
 	}
@@ -154,7 +159,7 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 	public void InsertName () {
-		if(UIManager.Instance.nameInput.text != ""){
+		if (UIManager.Instance.nameInput.text != "") {
 			GameManager.Instance.playerName = UIManager.Instance.nameInput.text;
 			insertNameGroup.blocksRaycasts = false;
 			insertNameGroup.interactable = false;
