@@ -339,6 +339,10 @@ Prefab:
       propertyPath: kickSFX
       value: 
       objectReference: {fileID: 8300000, guid: 25636a6a950ed3644ade43eaf6ec997c, type: 3}
+    - target: {fileID: 4391342206579910, guid: c8a9b32ceabf55d4b950ead2f98ec303, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.536
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58490428854524082, guid: c8a9b32ceabf55d4b950ead2f98ec303, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c8a9b32ceabf55d4b950ead2f98ec303, type: 2}

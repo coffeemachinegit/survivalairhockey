@@ -22,6 +22,8 @@ public class GoalKeeperAI : MonoBehaviour {
 	public AudioClip kickSFX;
 	public Animator animator;
 
+	private bool _isCoroutineRunning = false;
+
 	
 	void Start () {
 		ballTransform = GameManager.Instance.ballPosition;
@@ -52,7 +54,7 @@ public class GoalKeeperAI : MonoBehaviour {
 			return;
 
 		if(other.gameObject.tag == "Ball"){
-			if(Random.Range(0,2) == 1 && !ballCatch){
+			if(Random.Range(0,2) == 1 && !_isCoroutineRunning){
 				ballCatch = true;
 				rotation.ballPostion = playerGoal;
 				other.gameObject.transform.SetParent(gameObject.transform);
@@ -60,21 +62,21 @@ public class GoalKeeperAI : MonoBehaviour {
 				GameManager.Instance.ballRB.velocity = Vector2.zero;
 				other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
 				StartCoroutine(KickBall(other.gameObject));
-				Debug.Log("Entrou");
 			}
 		}
 	}
 	
 	IEnumerator KickBall(GameObject ball){
+		_isCoroutineRunning = true;
 		yield return new WaitForSeconds(1);
 		Vector2 newVelocity = new Vector2(Random.Range(-12,-30),Random.Range(-11,12));
+		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
 		ball.GetComponent<CircleCollider2D>().enabled = true;
 		ball.transform.SetParent(null);
-		GameManager.Instance.ballRB.AddForce(newVelocity,ForceMode2D.Impulse);
-		Debug.Log("entrou aqui");
 		rotation.ballPostion = ball.transform;
 		ballCatch = false;
 		source.PlayOneShot(kickSFX);
+		_isCoroutineRunning = false;
 
 	}
 }
